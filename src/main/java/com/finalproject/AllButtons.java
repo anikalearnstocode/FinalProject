@@ -13,24 +13,28 @@ public class AllButtons {
 
     public AirButton airButton;
     public SeaButton seaButton;
-
-    // AllButtons(PApplet main_, float x_, float y_, float width_, float height_, int color_) {
-    //     super(main_, "", width_/2, height_/2, 200, 50, color_);
-    //     float buttonSpacing = 50;
-    //     airButton = new AirButton(main_, "Air", width_/2-buttonSpacing, height_/2, 150, 50, color_);
-    //     seaButton = new SeaButton(main_, "Air", width_/2+buttonSpacing, height_/2, 150, 50, color_);
-
-    // }
+    public BoatButton boatButton;
+    public InWaterButton inWaterButton;
+    public IslandButton islandButton;
 
     AllButtons(PApplet main, float centerX, float centerY, float buttonWidth, float buttonHeight, int color) {
-        float buttonSpacing = 150;
-        airButton = new AirButton(main, "Air", centerX - buttonSpacing, centerY, buttonWidth, buttonHeight, color);
-        seaButton = new SeaButton(main, "Sea", centerX + buttonSpacing, centerY, buttonWidth, buttonHeight, color);
+        float buttonSpacing = 50;
+        
+        airButton = new AirButton(main, "Air", centerX - buttonSpacing*2, centerY, buttonWidth, buttonHeight, color);
+        seaButton = new SeaButton(main, "Sea", centerX + buttonSpacing*2, centerY, buttonWidth, buttonHeight, color);
+        boatButton = new BoatButton(main, "Boat", centerX - 220 - buttonSpacing, centerY + 200, buttonWidth, buttonHeight, color);
+        inWaterButton = new InWaterButton(main, "In The Water", centerX + 50 - buttonSpacing, centerY + 200, buttonWidth, buttonHeight, color);
+        islandButton = new IslandButton(main, "Island", centerX + 220 + buttonSpacing, centerY + 200, buttonWidth, buttonHeight, color);
+
     }
 
     public void mousePressed(float mouseX, float mouseY) {
         airButton.mousePressed(mouseX, mouseY);
         seaButton.mousePressed(mouseX, mouseY);
+        boatButton.mousePressed(mouseX, mouseY);
+        inWaterButton.mousePressed(mouseX, mouseY);
+        islandButton.mousePressed(mouseX, mouseY);
+
     }
 }
 
@@ -57,6 +61,53 @@ class SeaButton extends Button {
     public void onPress() {
        // main = new SeaScreen(main);
        System.out.println("Sea button clicked");
+       Main mainApp = (Main) main;
+       mainApp.setCurrentScreen(new SeaScreen(main));  // Switch to SeaScreen
+
+    }
+}
+
+class BoatButton extends Button {
+
+    BoatButton(PApplet main, String label, float x, float y, float width, float height, int color) {
+        super(main, label, x, y, width, height, color);
+    }
+
+    @Override
+    public void onPress() {
+       System.out.println("Boat button clicked");
+       Main mainApp = (Main) main;
+       //mainApp.setCurrentScreen(new BoatScreen(main)); // Switch to SeaScreen
+
+    }
+}
+
+class InWaterButton extends Button {
+
+    InWaterButton(PApplet main, String label, float x, float y, float width, float height, int color) {
+        super(main, label, x, y, width, height, color);
+    }
+
+    @Override
+    public void onPress() {
+       System.out.println("InWater button clicked");
+       Main mainApp = (Main) main;
+       //mainApp.setCurrentScreen(new InWaterScreen(main)); // Switch to SeaScreen
+
+    }
+}
+
+class IslandButton extends Button {
+
+    IslandButton(PApplet main, String label, float x, float y, float width, float height, int color) {
+        super(main, label, x, y, width, height, color);
+    }
+
+    @Override
+    public void onPress() {
+       System.out.println("Island button clicked");
+       Main mainApp = (Main) main;
+       //mainApp.setCurrentScreen(new IslandScreen(main)); // Switch to SeaScreen
 
     }
 }

@@ -11,8 +11,8 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class TitleScreen extends Screen {
-    private Main main;
-    PImage background;
+    Main main;
+    //PImage background;
 
 
     public TitleScreen(Main main) {
@@ -22,13 +22,13 @@ public class TitleScreen extends Screen {
 
     @Override
     void setup() {
-       background = main.loadImage("src/main/resources/data/titlescreenbg.png");
-       setBackground(background);  // Only set the background if the image is loaded
+            PImage bg = main.loadImage("title.jpg");
+            setBackground(bg);  // Only set the background if the image is loaded
+       
     }
 
     void draw() {
-        super.drawBackground();
-        //main.background(102, 36, 131);
+        drawBackground();
 
         main.textAlign(main.CENTER, main.CENTER);
         main.fill(255);

@@ -12,13 +12,7 @@ import processing.core.PApplet;
 //import processing.core.PImage;
 
 public class Main extends PApplet {
-    //PImage background;
-    int background;
     Screen currentScreen;
-    //TitleScreen titleScreen;
-    //FirstChoiceScreen firstChoiceScreen;
-    // AirScreen airScreen;
-    // SeaScreen seaScreen;
     AllButtons allButtons;
     public static void main(String[] args) {
         PApplet.main("com.finalproject.Main");
@@ -35,7 +29,9 @@ public class Main extends PApplet {
         
         currentScreen = new TitleScreen(this); //start with the title screen
         System.out.println("TitleScreen initialized: " + currentScreen);
-        allButtons = null;
+        //allButtons = null;
+        allButtons = new AllButtons(this, width / 2, height / 2, 150, 50, color(0, 0, 255)); // Create buttons
+        currentScreen.setup();
 
         //allButtons = new AirButton(this, "Air Button", 100, 100, 200, 50, color(255, 0, 0));  // Air button example
         //allButtons = new SeaButton(this, "Sea Button", 100, 100, 200, 50, color(255, 0, 0));  // Air button example
@@ -44,41 +40,30 @@ public class Main extends PApplet {
 
     public void draw() {
         currentScreen.draw();
-
-        //keep if this fails:
-        // if (currentScreen instanceof FirstChoiceScreen) {
-        //     allButtons.draw();
-        // }
+    
     }
 
     public void keyPressed() {
         currentScreen.keyPressed();
 
-                //keep if this fails:
-
-        // if (currentScreen instanceof TitleScreen) {
-        //     // Switch to FirstChoiceScreen if 'B' is pressed
-        //     if (key == 'b' || key == 'B') {
-        //         currentScreen = new FirstChoiceScreen(this);
-        //     }
-        // }
     }
 
 
     public void mousePressed() {
-       currentScreen.mousePressed(X, Y);
+       //currentScreen.mousePressed(X, Y);
+       if (currentScreen != null) {
+        currentScreen.mousePressed(X, Y);
+       }
 
-               //keep if this fails:
-
-        // if (currentScreen instanceof FirstChoiceScreen) {
-        //     allButtons.mousePressed(mouseX, mouseY);
-        // }
-
+       if (allButtons != null) {
+        allButtons.mousePressed(mouseX, mouseY);
+       }
 
     }
 
     public void setCurrentScreen(Screen newScreen) {
         currentScreen = newScreen;
+        currentScreen.setup();
     }
 }
 

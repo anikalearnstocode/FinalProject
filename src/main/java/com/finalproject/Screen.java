@@ -19,6 +19,8 @@ public abstract class Screen {
         this.main = main;
     }
 
+    abstract void setup();
+
     void setBackground(PImage bg) {
         this.background = bg;
     }
@@ -31,8 +33,6 @@ public abstract class Screen {
             //main.background(255);
         }
     }
-
-    abstract void setup();
 
     abstract void draw();
 
