@@ -1,48 +1,50 @@
 /*
  * Anika Krieger
- * Nov 9
+ * Nov 11
  * Button Class
- * Description:
+ * Description: Abstract class representing a generic button
  */
 
 package com.finalproject;
 import processing.core.PApplet;
 
 public abstract class Button {
-    PApplet main;
-    String label;
-    int color;
-    float x, y, width, height;
+    PApplet main; //declare PApplet ref for processing
+    String label; //declare label for button text
+    int color; //declare color for buttons
+    float x, y, width, height; //declare position and size
 
+    //constructor
     Button(PApplet main, String label, float x, float y, float width, float height, int color) {
-        this.main = main;
-        this.label = label;
-        this.x = x;
+        this.main = main; //initialize main reference
+        this.label = label; //initialize label
+        //initialize position width height and color:
+        this.x = x; 
         this.y = y;
         this.width = width;
         this.height = height;
         this.color = color;
     }
 
-    Button(PApplet main, String label, float x, float y, float width, float height) {
-        this(main, label, x, y, width, height, main.color(23, 50, 155));
+    Button(PApplet main, String label, float x, float y, float width, float height) { //overloaded constructor without color
+        this(main, label, x, y, width, height, main.color(23, 50, 155)); //default color is set to blue
     }
 
     public void draw() {
-        main.fill(color);
-        main.rectMode(PApplet.CENTER);
-        main.rect(x, y, width, height);
+        main.fill(color); //set button fill color
+        main.rectMode(PApplet.CENTER); //set rectangle mode to center
+        main.rect(x, y, width, height); //draw button rectangle
 
-        main.fill(255);
-        main.strokeWeight(0);
-        main.textAlign(PApplet.CENTER, PApplet.CENTER);
-        main.textSize(20);
-        main.text(label, x, y);
+        main.fill(255); //set text fill color to white
+        main.strokeWeight(0); //make stroke weight = 0
+        main.textAlign(PApplet.CENTER, PApplet.CENTER); //align text to center
+        main.textSize(20); //set text size
+        main.text(label, x, y); //draw button label text
     }
 
-    public void mousePressed(float mx, float my) {
+    public void mousePressed(float mx, float my) { //method to handle mouse press on button
         if (mx > x - width / 2 && mx < x + width / 2 && my > y - height / 2 && my < y + height / 2) {
-            onPress();
+            onPress(); //call on press if within bounds
         }
     }
 

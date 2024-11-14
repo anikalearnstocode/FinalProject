@@ -1,8 +1,8 @@
 /*
  * Anika Krieger
- * Nov 9
+ * Nov 11
  * Screen Class
- * Description:
+ * Description: Sets background and other stuff for the title
  */
 
 package com.finalproject;
@@ -14,12 +14,13 @@ public class TitleScreen extends Screen {
     Main main;
     //PImage background;
 
-
+    //constructor
     public TitleScreen(Main main) {
         super(main);
-        this.main = main;
+        this.main = main; //assign Main instance to the local variable
     }
 
+    //set up method for title screen, load title screen bg img, set bg img for title screen as bg
     @Override
     void setup() {
             PImage bg = main.loadImage("title.jpg");
@@ -28,20 +29,20 @@ public class TitleScreen extends Screen {
     }
 
     void draw() {
-        drawBackground();
+        drawBackground(); //draw bg img
 
-        main.textAlign(main.CENTER, main.CENTER);
-        main.fill(255);
-        main.textSize(80);
-        main.text("Dream Navigator", main.width / 2, main.height / 2 - 50);
-        main.textSize(40);
-        main.text("Press B to Begin Your Exploration!", main.width / 2, main.height /2 + 50);
-        //System.out.println("TitleScreen draw() is executing"); // Add this line
+        main.textAlign(main.CENTER, main.CENTER); //align text to center of screen
+        main.fill(255); //set text color to white
+        main.textSize(80); //set text size for title
+        main.text("Dream Navigator", main.width / 2, main.height / 2 - 50); //draw project title
+        main.textSize(40); //set text size for instructions
+        main.text("Press B to Begin Your Exploration!", main.width / 2, main.height /2 + 50); //display instruction text
 
     }
 
     @Override
     void keyPressed() {
+        //if B is pressed, change currentScreen from TitleScreen to FirstChoiceScreen
         if (main.key == 'b' || main.key == 'B') {
             main.setCurrentScreen(new FirstChoiceScreen(main));
         }

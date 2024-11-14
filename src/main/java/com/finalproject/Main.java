@@ -1,8 +1,8 @@
 /*
  * Anika Krieger
- * Nov 9
+ * Nov 11
  * Main Class
- * Description:
+ * Description: Main app class that initializes screen and handles events
  */
 
 package com.finalproject;
@@ -12,56 +12,53 @@ import processing.core.PApplet;
 //import processing.core.PImage;
 
 public class Main extends PApplet {
-    Screen currentScreen;
-    AllButtons allButtons;
+    Screen currentScreen; //instance variable to store current screen
+    AllButtons allButtons; //instance variable to store all buttons
+    DreamTree dreamTree;
     public static void main(String[] args) {
         PApplet.main("com.finalproject.Main");
     }
 
     public void settings() {
-        size(810,600);
+        size(810,600); //window size
     }
 
     public void setup() {        
-       // background = loadImage("background.png");
-       // background.resize(width, height);  // Resize to screen dimensions
-        //background(int);
-        
         currentScreen = new TitleScreen(this); //start with the title screen
-        System.out.println("TitleScreen initialized: " + currentScreen);
-        //allButtons = null;
+        System.out.println("TitleScreen initialized: " + currentScreen); //log screen initialization
         allButtons = new AllButtons(this, width / 2, height / 2, 150, 50, color(0, 0, 255)); // Create buttons
-        currentScreen.setup();
+        currentScreen.setup(); //call setup on current screen to initialize its contents
 
-        //allButtons = new AirButton(this, "Air Button", 100, 100, 200, 50, color(255, 0, 0));  // Air button example
-        //allButtons = new SeaButton(this, "Sea Button", 100, 100, 200, 50, color(255, 0, 0));  // Air button example
-
+        //new additions
+        dreamTree = new DreamTree(this);
     }
 
     public void draw() {
-        currentScreen.draw();
+        currentScreen.draw(); //call draw on current screen to update screen content
     
     }
 
     public void keyPressed() {
-        currentScreen.keyPressed();
+        currentScreen.keyPressed(); //call keypressed on current screen to handle keyboard input
 
     }
 
 
     public void mousePressed() {
-       //currentScreen.mousePressed(X, Y);
-       if (currentScreen != null) {
-        currentScreen.mousePressed(X, Y);
-       }
+        //check if there is a screen, and if so, call mousepressed on the buttons, passing mouse position
+        if (currentScreen != null) {
+            currentScreen.mousePressed(X, Y);
+        }
 
+        //if all buttons are not null and exist, then call mousepressed on the buttons, passing mouse position
        if (allButtons != null) {
         allButtons.mousePressed(mouseX, mouseY);
-       }
+        }
 
     }
 
     public void setCurrentScreen(Screen newScreen) {
+        //set new screen as current screen and then initialize new screen by calling its setup method
         currentScreen = newScreen;
         currentScreen.setup();
     }

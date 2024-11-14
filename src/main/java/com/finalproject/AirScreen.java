@@ -1,10 +1,19 @@
+/*
+ * Anika Krieger
+ * Nov 11
+ * AirScreen Class
+ * Description: Represents the air screen, contains methods for setting up, drawing, and handling interaction
+ */
+
 package com.finalproject;
 
 import processing.core.PApplet;
 
 public class AirScreen extends Screen {
+
+    //constructor
     AirScreen(PApplet main) {
-        super(main);
+        super(main); //call superclass constructor
     }
 
     @Override
@@ -18,12 +27,13 @@ public class AirScreen extends Screen {
     }
 
     @Override
-    public void keyPressed() {}
+    public void keyPressed() {
+        
+    }
 
     @Override
     void mousePressed(float mx, float my) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mousePressed'");
+        
     }
 
 }

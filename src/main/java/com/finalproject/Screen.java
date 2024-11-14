@@ -1,8 +1,8 @@
 /*
  * Anika Krieger
- * Nov 9
+ * Nov 11
  * Screen Class
- * Description:
+ * Description: Parent Abstract class for screen management, handles background drawing and defines setup, draw, keyPressed, etc.
  */
 
 
@@ -12,26 +12,25 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public abstract class Screen {
-    PApplet main;
-    PImage background;
+    PApplet main; //reference
+    PImage background; //background image for the screen
 
+    //constructor
     Screen(PApplet main) {
-        this.main = main;
+        this.main = main; 
     }
 
     abstract void setup();
 
+    //sets backgrounf img, assigns passed image to instance variable
     void setBackground(PImage bg) {
         this.background = bg;
     }
 
-    void drawBackground() {
-        if (background != null) {
-            main.image(background, 0, 0, main.width, main.height);
-        } else {
-            System.out.println("ERROR: Images not loading properly");
-            //main.background(255);
-        }
+    void drawBackground() { //draws bg img on screen
+        if (background != null) { //check if bg img exists
+            main.image(background, 0, 0, main.width, main.height); //if so, draw bg img scaled to the window size
+        } 
     }
 
     abstract void draw();
