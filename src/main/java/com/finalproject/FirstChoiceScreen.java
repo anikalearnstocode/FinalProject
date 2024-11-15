@@ -27,7 +27,7 @@ public class FirstChoiceScreen extends Screen {
     @Override
     void setup() {
         //load and set background
-        PImage bg = main.loadImage("src/main/resources/data/firstchoicebg.png");
+        PImage bg = main.loadImage("src/main/resources/data/firstchoicebg.jpg");
         setBackground(bg);
     }
     

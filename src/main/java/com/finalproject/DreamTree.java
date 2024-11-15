@@ -18,26 +18,29 @@ public class DreamTree {
     private void createTree() {
         //DreamNode titleNode = new DreamNode(main, "Title", 1);  
         DreamNode firstChoiceNode = new DreamNode(main, "FirstChoice", 2, null);
-        DreamNode seaNode = new DreamNode(main, "Sea", 2, "FirstChoice");
+        DreamNode seaNode = new DreamNode(main, "Sea", 3, "FirstChoice");
         DreamNode airNode = new DreamNode(main, "Air", 2, "FirstChoice");
+        DreamNode boatNode = new DreamNode(main, "Boat", 2, "Sea");
+        DreamNode waterNode = new DreamNode(main, "InTheWater", 2, "Sea");
+        DreamNode islandNode = new DreamNode(main, "Island", 2, "Sea");
+
 
         ArrayList<DreamNode> nodesToAdd = new ArrayList<>();
         nodesToAdd.add(seaNode);
         nodesToAdd.add(airNode);
+        nodesToAdd.add(boatNode);
+        nodesToAdd.add(waterNode);
+        nodesToAdd.add(islandNode);
 
+        
         root = firstChoiceNode;
         root.addNextNodes(nodesToAdd);
         currentNode = root;
 
     }
 
-    Screen getCurrentScreen()
-    {
-        currentNode.getScreen();
+    public Screen getCurrentScreen() {
+        return currentNode.getScreen();
     }
-
-    //create getScreen 
-
-
 
 }

@@ -20,7 +20,7 @@ public class Main extends PApplet {
     }
 
     public void settings() {
-        size(810,600); //window size
+        fullScreen(); //window size
     }
 
     public void setup() {        

@@ -22,7 +22,7 @@ public class SeaScreen extends Screen {
         //load bg img and set loaded bg img for screen
         @Override
         public void setup() { 
-            PImage bg = main.loadImage("src/main/resources/data/seascreenbg.png");
+            PImage bg = main.loadImage("src/main/resources/data/seascreenbg.jpg");
             setBackground(bg);
 
             //create buttons for the sea screen

@@ -25,9 +25,9 @@ public class AllButtons {
         //initialize all buttons
         airButton = new AirButton(main, "Air", centerX - buttonSpacing*2, centerY, buttonWidth, buttonHeight, color);
         seaButton = new SeaButton(main, "Sea", centerX + buttonSpacing*2, centerY, buttonWidth, buttonHeight, color);
-        boatButton = new BoatButton(main, "Boat", centerX - 220 - buttonSpacing, centerY + 200, buttonWidth, buttonHeight, color);
-        inWaterButton = new InWaterButton(main, "In The Water", centerX + 50 - buttonSpacing, centerY + 200, buttonWidth, buttonHeight, color);
-        islandButton = new IslandButton(main, "Island", centerX + 220 + buttonSpacing, centerY + 200, buttonWidth, buttonHeight, color);
+        boatButton = new BoatButton(main, "Boat", centerX - 525 - buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color);
+        inWaterButton = new InWaterButton(main, "In The Water", centerX + 60 - buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color);
+        islandButton = new IslandButton(main, "Island", centerX + 515 + buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color);
 
     }
 
@@ -53,7 +53,9 @@ class AirButton extends Button {
 
     @Override
     public void onPress() {
-       System.out.println("Air button clicked"); //print message to test
+        System.out.println("Air button clicked"); //print message to test
+        Main mainApp = (Main) main; //cast main to Main
+        mainApp.setCurrentScreen(new AirScreen(main));  //switch to SeaScreen when clicked
     }
 }
 
@@ -84,11 +86,8 @@ class BoatButton extends Button {
     @Override
     public void onPress() {
        System.out.println("Boat button clicked");
-
-       //these are commented out bc i havent made the BoatScreen yet:
-
-       //Main mainApp = (Main) main;
-       //mainApp.setCurrentScreen(new BoatScreen(main)); // Switch to SeaScreen
+        Main mainApp = (Main) main;
+        mainApp.setCurrentScreen(new BoatScreen(main)); // Switch to SeaScreen
 
     }
 }
@@ -104,7 +103,7 @@ class InWaterButton extends Button {
     public void onPress() {
        System.out.println("InWater button clicked");
 
-       //these are commented out bc i havent made the BoatScreen yet:
+       //these are commented out bc i havent made the InWaterScreen yet:
 
        //Main mainApp = (Main) main;
        //mainApp.setCurrentScreen(new InWaterScreen(main)); // Switch to SeaScreen
@@ -123,10 +122,25 @@ class IslandButton extends Button {
     public void onPress() {
        System.out.println("Island button clicked");
 
-       //these are commented out bc i havent made the BoatScreen yet:
+       //these are commented out bc i havent made the IslandScreen yet:
 
        //Main mainApp = (Main) main;
        //mainApp.setCurrentScreen(new IslandScreen(main)); // Switch to SeaScreen
 
     }
 }
+
+// class FallingButton extends Button {
+
+//     FallingButton(PApplet main, String label, float x, float y, float width, float height, int color) {
+//         super(main, label, x, y, width, height, color); //call superclass constructor
+//     }
+
+//     @Override
+//     public void onPress() {
+//        System.out.println("Falling button clicked");
+//         Main mainApp = (Main) main;
+//         mainApp.setCurrentScreen(new FallingScreen(main)); // Switch to SeaScreen
+
+//     }
+// }

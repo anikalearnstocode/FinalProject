@@ -14,6 +14,7 @@ public class DreamNode {
     PImage image;
     String description;
     String parentName = "FirstChoice";
+    Screen screen; 
 
     //constructor
     public DreamNode(PApplet main, String name, int childCount, String parent_) {
@@ -49,6 +50,7 @@ public class DreamNode {
             if (this.name.equals (node.getParentName())) {
                 childNodes.add(node);
                 nodesToAdd.remove(node);
+                node.parentNode = this;
                 System.out.println("Added " + node.name + " to " + this.name);
             }
         }
@@ -59,9 +61,27 @@ public class DreamNode {
         }
 
         for (DreamNode child : childNodes) {
-            // if (child != null) {
                 child.addNextNodes(nodesToAdd);
-            // }
         }
     }
+
+    public DreamNode getNextNode(String name) {
+        for (DreamNode child : childNodes) {
+            if (child.name.equals(name)) {
+                return child;
+            }
+        }
+        System.out.println("Node with name " + name + " not found among children of " + this.name);
+        return null; // Return null if no child with the specified name is found
+    }
+
+    // Returns the parent node of this node
+    public DreamNode getParent() {
+        return parentNode;
+    }
+
+    public Screen getScreen() {
+        return screen;
+    }
+
 }
