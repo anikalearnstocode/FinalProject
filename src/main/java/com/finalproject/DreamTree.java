@@ -23,6 +23,8 @@ public class DreamTree {
         DreamNode boatNode = new DreamNode(main, "Boat", 2, "Sea");
         DreamNode waterNode = new DreamNode(main, "InTheWater", 2, "Sea");
         DreamNode islandNode = new DreamNode(main, "Island", 2, "Sea");
+        DreamNode flyingNode = new DreamNode(main, "Flying", 2, "Air");
+        DreamNode fallingNode = new DreamNode(main, "Falling", 2, "Air");
 
 
         ArrayList<DreamNode> nodesToAdd = new ArrayList<>();
@@ -31,8 +33,10 @@ public class DreamTree {
         nodesToAdd.add(boatNode);
         nodesToAdd.add(waterNode);
         nodesToAdd.add(islandNode);
+        nodesToAdd.add(flyingNode);
+        nodesToAdd.add(fallingNode);
 
-        
+
         root = firstChoiceNode;
         root.addNextNodes(nodesToAdd);
         currentNode = root;

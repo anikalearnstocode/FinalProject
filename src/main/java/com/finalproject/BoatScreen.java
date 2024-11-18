@@ -22,7 +22,7 @@
 
      @Override
         public void setup() { 
-            PImage bg = main.loadImage("src/main/resources/data/boatscreenbg.jpg");
+            PImage bg = main.loadImage("src/main/resources/data/boatscreenbg.png");
             setBackground(bg);
 
             //create buttons for the boat screen

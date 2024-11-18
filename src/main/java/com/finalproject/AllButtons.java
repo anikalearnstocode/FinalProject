@@ -17,6 +17,8 @@ public class AllButtons {
     public BoatButton boatButton; //declare button for boat
     public InWaterButton inWaterButton; //declare button for InWater
     public IslandButton islandButton; //declare button for island
+    public FallingButton fallingButton; //declare button for falling
+    public FlyingButton flyingButton; //declare button for flying
 
     //constructor
     AllButtons(PApplet main, float centerX, float centerY, float buttonWidth, float buttonHeight, int color) {
@@ -25,9 +27,13 @@ public class AllButtons {
         //initialize all buttons
         airButton = new AirButton(main, "Air", centerX - buttonSpacing*2, centerY, buttonWidth, buttonHeight, color);
         seaButton = new SeaButton(main, "Sea", centerX + buttonSpacing*2, centerY, buttonWidth, buttonHeight, color);
+        
         boatButton = new BoatButton(main, "Boat", centerX - 525 - buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color);
         inWaterButton = new InWaterButton(main, "In The Water", centerX + 60 - buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color);
         islandButton = new IslandButton(main, "Island", centerX + 515 + buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color);
+
+        fallingButton = new FallingButton(main, "Falling", centerX - buttonSpacing - 540, centerY - 200, buttonWidth*2, buttonHeight*2, color);
+        flyingButton = new FlyingButton(main, "Flying", centerX + buttonSpacing*2 + 220, centerY + 140, buttonWidth*2, buttonHeight*2, color);
 
     }
 
@@ -39,6 +45,8 @@ public class AllButtons {
         boatButton.mousePressed(mouseX, mouseY);
         inWaterButton.mousePressed(mouseX, mouseY);
         islandButton.mousePressed(mouseX, mouseY);
+        fallingButton.mousePressed(mouseX, mouseY);
+        flyingButton.mousePressed(mouseX, mouseY);
 
     }
 }
@@ -130,17 +138,33 @@ class IslandButton extends Button {
     }
 }
 
-// class FallingButton extends Button {
+class FallingButton extends Button {
 
-//     FallingButton(PApplet main, String label, float x, float y, float width, float height, int color) {
-//         super(main, label, x, y, width, height, color); //call superclass constructor
-//     }
+    FallingButton(PApplet main, String label, float x, float y, float width, float height, int color) {
+        super(main, label, x, y, width, height, color); //call superclass constructor
+    }
 
-//     @Override
-//     public void onPress() {
-//        System.out.println("Falling button clicked");
-//         Main mainApp = (Main) main;
-//         mainApp.setCurrentScreen(new FallingScreen(main)); // Switch to SeaScreen
+    @Override
+    public void onPress() {
+       System.out.println("Falling button clicked");
+        Main mainApp = (Main) main;
+        mainApp.setCurrentScreen(new FallingScreen(main)); // Switch to SeaScreen
 
-//     }
-// }
+    }
+}
+
+
+class FlyingButton extends Button {
+
+    FlyingButton(PApplet main, String label, float x, float y, float width, float height, int color) {
+        super(main, label, x, y, width, height, color); //call superclass constructor
+    }
+
+    @Override
+    public void onPress() {
+       System.out.println("Flying button clicked");
+        Main mainApp = (Main) main;
+        mainApp.setCurrentScreen(new FlyingScreen(main)); // Switch to FlyingScreen
+
+    }
+}

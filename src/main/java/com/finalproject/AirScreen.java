@@ -32,6 +32,8 @@ public class AirScreen extends Screen {
     @Override
     public void draw() {
         drawBackground();
+        allButtons.flyingButton.draw();
+        allButtons.fallingButton.draw();
 
     }
 
