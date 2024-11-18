@@ -25,8 +25,6 @@
             PImage bg = main.loadImage("src/main/resources/data/fallingscreenbg.png");
             setBackground(bg);
 
-            //create buttons for the boat screen
-            //allButtons = new AllButtons(main, main.width/2, main.height/2, 150, 50, main.color(0,0,50));
         }
  
      @Override
@@ -40,7 +38,6 @@
 
         @Override
         void mousePressed(float mx, float my) {
-            //allButtons.mousePressed(mx, my); //call mousePressed on the buttons, passing mouse position
         }
  
 

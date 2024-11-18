@@ -19,6 +19,8 @@ public class AllButtons {
     public IslandButton islandButton; //declare button for island
     public FallingButton fallingButton; //declare button for falling
     public FlyingButton flyingButton; //declare button for flying
+    public DrowningButton drowningButton;
+    public SwimmingButton swimmingButton;
 
     //constructor
     AllButtons(PApplet main, float centerX, float centerY, float buttonWidth, float buttonHeight, int color) {
@@ -35,6 +37,9 @@ public class AllButtons {
         fallingButton = new FallingButton(main, "Falling", centerX - buttonSpacing - 540, centerY - 200, buttonWidth*2, buttonHeight*2, color);
         flyingButton = new FlyingButton(main, "Flying", centerX + buttonSpacing*2 + 220, centerY + 140, buttonWidth*2, buttonHeight*2, color);
 
+        swimmingButton = new SwimmingButton(main, "Swimming", centerX - buttonSpacing - 380, centerY - 250, buttonWidth + 20, buttonHeight + 20, color);
+        drowningButton = new DrowningButton(main, "Drowning", centerX + buttonSpacing*2 + 330, centerY + 250, buttonWidth + 20, buttonHeight + 20, color);
+
     }
 
     //handle mousepressed for all buttons
@@ -47,6 +52,10 @@ public class AllButtons {
         islandButton.mousePressed(mouseX, mouseY);
         fallingButton.mousePressed(mouseX, mouseY);
         flyingButton.mousePressed(mouseX, mouseY);
+        drowningButton.mousePressed(mouseX, mouseY);
+        swimmingButton.mousePressed(mouseX, mouseY);
+
+
 
     }
 }
@@ -110,11 +119,8 @@ class InWaterButton extends Button {
     @Override
     public void onPress() {
        System.out.println("InWater button clicked");
-
-       //these are commented out bc i havent made the InWaterScreen yet:
-
-       //Main mainApp = (Main) main;
-       //mainApp.setCurrentScreen(new InWaterScreen(main)); // Switch to SeaScreen
+       Main mainApp = (Main) main;
+       mainApp.setCurrentScreen(new InWaterScreen(main)); // Switch to SeaScreen
 
     }
 }
@@ -162,9 +168,41 @@ class FlyingButton extends Button {
 
     @Override
     public void onPress() {
-       System.out.println("Flying button clicked");
+        System.out.println("Flying button clicked");
         Main mainApp = (Main) main;
         mainApp.setCurrentScreen(new FlyingScreen(main)); // Switch to FlyingScreen
+
+    }
+}
+
+//define button subclass
+class DrowningButton extends Button {
+
+    DrowningButton(PApplet main, String label, float x, float y, float width, float height, int color) {
+        super(main, label, x, y, width, height, color); //call superclass constructor
+    }
+
+    @Override
+    public void onPress() {
+       System.out.println("Drowning button clicked");
+       Main mainApp = (Main) main;
+       mainApp.setCurrentScreen(new DrowningScreen(main)); // Switch to SeaScreen
+
+    }
+}
+
+//define button subclass
+class SwimmingButton extends Button {
+
+    SwimmingButton(PApplet main, String label, float x, float y, float width, float height, int color) {
+        super(main, label, x, y, width, height, color); //call superclass constructor
+    }
+
+    @Override
+    public void onPress() {
+       System.out.println("Swimming button clicked");
+       Main mainApp = (Main) main;
+       mainApp.setCurrentScreen(new SwimmingScreen(main)); // Switch to SeaScreen
 
     }
 }

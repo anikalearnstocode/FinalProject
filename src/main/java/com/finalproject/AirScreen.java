@@ -18,7 +18,7 @@ public class AirScreen extends Screen {
     AirScreen(PApplet main) {
         super(main); //call superclass constructor
         PImage bg = main.loadImage("src/main/resources/data/airscreenbg.jpg");
-            setBackground(bg);
+        setBackground(bg);
 
         allButtons = new AllButtons(main, main.width/2, main.height/2, 150, 50, main.color(0,0,50));
 

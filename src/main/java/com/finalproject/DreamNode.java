@@ -22,6 +22,54 @@ public class DreamNode {
         this.name = name;
         this.childNodes = new ArrayList<>();
         parentName = parent_;
+
+        //assign specific screens to nodes based on node name
+        switch (name) {
+            case "Swimming":
+            this.screen = new SwimmingScreen(main);
+            break;
+
+            case "Falling":
+            this.screen = new FallingScreen(main);
+            break;
+
+            case "Flying":
+            this.screen = new FlyingScreen(main);
+            break;
+
+            case "Drowning":
+            this.screen = new DrowningScreen(main);
+            break;
+
+            case "FirstChoice":
+            this.screen = new FirstChoiceScreen(main);
+            break;
+
+            case "Water":
+            this.screen = new InWaterScreen(main);
+            break;
+
+            case "Sea" :
+            this.screen = new SeaScreen(main);
+            break;
+
+            case "Air":
+            this.screen = new AirScreen(main);
+            break;
+
+            case "Boat":
+            this.screen = new BoatScreen(main);
+            break;
+
+            //still need to add:
+            //island
+            //stranded
+            //vacation
+            //choppy seas
+            //calm seas
+            
+        }
+
     }
 
     //load image for this node
@@ -33,7 +81,8 @@ public class DreamNode {
     //display image if available
     public void displayImage() {
         if (image != null) {
-            main.image(image, main.width/2, main.height/2 - 200);
+            main.imageMode(PApplet.CORNER);
+            main.image(image, 0, 0, main.width, main.height);
         }
     }
 

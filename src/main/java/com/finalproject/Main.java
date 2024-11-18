@@ -30,7 +30,7 @@ public class Main extends PApplet {
         currentScreen.setup(); //call setup on current screen to initialize its contents
 
         //new additions
-        dreamTree = new DreamTree(this);
+        dreamTree = new DreamTree(this, currentScreen);
     }
 
     public void draw() {
@@ -41,6 +41,9 @@ public class Main extends PApplet {
     public void keyPressed() {
         currentScreen.keyPressed(); //call keypressed on current screen to handle keyboard input
 
+        //call backbutton from dreamtree
+        dreamTree.keyPressed();
+        
     }
 
 
