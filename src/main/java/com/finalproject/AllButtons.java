@@ -6,40 +6,59 @@
  */
 
  package com.finalproject;
- import processing.core.PApplet;
+ import java.util.ArrayList;
+import java.util.Arrays;
+
+import processing.core.PApplet;
 
 
 public class AllButtons {
     //define AllButtons class variables
 
-    public AirButton airButton; //declare button for air
-    public SeaButton seaButton; //declare button for sea
-    public BoatButton boatButton; //declare button for boat
-    public InWaterButton inWaterButton; //declare button for InWater
-    public IslandButton islandButton; //declare button for island
-    public FallingButton fallingButton; //declare button for falling
-    public FlyingButton flyingButton; //declare button for flying
-    public DrowningButton drowningButton;
-    public SwimmingButton swimmingButton;
+    public static final int airButton = 0; //declare button for air
+    public static final int  seaButton = 1; //declare button for sea
+    public static final int  boatButton = 2; //declare button for boat
+    public static final int  inWaterButton = 3; //declare button for InWater
+    public static final int  islandButton = 4; //declare button for island
+    public static final int  fallingButton = 5; //declare button for falling
+    public static final int  flyingButton = 6; //declare button for flying
+    public static final int  drowningButton = 7; 
+    public static final int  swimmingButton = 8;
+    public static final int  strandedButton = 9;
+    public static final int vacayButton = 10;
+
+    ArrayList<NodeButton> allButtons;
 
     //constructor
     AllButtons(PApplet main, float centerX, float centerY, float buttonWidth, float buttonHeight, int color) {
         float buttonSpacing = 50; //set button spacing
         
         //initialize all buttons
-        airButton = new AirButton(main, "Air", centerX - buttonSpacing*2, centerY, buttonWidth, buttonHeight, color);
-        seaButton = new SeaButton(main, "Sea", centerX + buttonSpacing*2, centerY, buttonWidth, buttonHeight, color);
+        NodeButton[] buttons =
+        {   new NodeButton(main, "Air", centerX - buttonSpacing*2, centerY, buttonWidth, buttonHeight, color),
+            new NodeButton(main, "Sea", centerX + buttonSpacing*2, centerY, buttonWidth, buttonHeight, color),
         
-        boatButton = new BoatButton(main, "Boat", centerX - 525 - buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color);
-        inWaterButton = new InWaterButton(main, "In The Water", centerX + 60 - buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color);
-        islandButton = new IslandButton(main, "Island", centerX + 515 + buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color);
+            new NodeButton(main, "Boat", centerX - 525 - buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),
+            new NodeButton(main, "In The Water", centerX + 60 - buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),
+            new NodeButton(main, "Island", centerX + 515 + buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),
 
-        fallingButton = new FallingButton(main, "Falling", centerX - buttonSpacing - 540, centerY - 200, buttonWidth*2, buttonHeight*2, color);
-        flyingButton = new FlyingButton(main, "Flying", centerX + buttonSpacing*2 + 220, centerY + 140, buttonWidth*2, buttonHeight*2, color);
+            new NodeButton(main, "Falling", centerX - buttonSpacing - 540, centerY - 200, buttonWidth*2, buttonHeight*2, color),
+            new NodeButton(main, "Flying", centerX + buttonSpacing*2 + 220, centerY + 140, buttonWidth*2, buttonHeight*2, color),
 
-        swimmingButton = new SwimmingButton(main, "Swimming", centerX - buttonSpacing - 380, centerY - 250, buttonWidth + 20, buttonHeight + 20, color);
-        drowningButton = new DrowningButton(main, "Drowning", centerX + buttonSpacing*2 + 330, centerY + 250, buttonWidth + 20, buttonHeight + 20, color);
+            new NodeButton(main, "Swimming", centerX - buttonSpacing - 380, centerY - 250, buttonWidth + 20, buttonHeight + 20, color),
+            new NodeButton(main, "Drowning", centerX + buttonSpacing*2 + 330, centerY + 250, buttonWidth + 20, buttonHeight + 20, color),
 
+            new NodeButton(main, "Stranded", centerX - buttonSpacing - 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
+            new NodeButton(main, "Vacation", centerX + buttonSpacing + 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color) };
+
+            allButtons = new ArrayList<>(Arrays.asList(buttons));
+     
+
+    }
+
+    public void setupButton(DreamTree tree, DreamNode node, int i)
+    {
+        allButtons.get(i).setNodeAndTree(node, tree);
     }
 
     //handle mousepressed for all buttons
@@ -54,7 +73,8 @@ public class AllButtons {
         flyingButton.mousePressed(mouseX, mouseY);
         drowningButton.mousePressed(mouseX, mouseY);
         swimmingButton.mousePressed(mouseX, mouseY);
-
+        vacayButton.mousePressed(mouseX, mouseY);
+        strandedButton.mousePressed(mouseX, mouseY);
 
 
     }
@@ -135,11 +155,8 @@ class IslandButton extends Button {
     @Override
     public void onPress() {
        System.out.println("Island button clicked");
-
-       //these are commented out bc i havent made the IslandScreen yet:
-
-       //Main mainApp = (Main) main;
-       //mainApp.setCurrentScreen(new IslandScreen(main)); // Switch to SeaScreen
+       Main mainApp = (Main) main;
+       mainApp.setCurrentScreen(new IslandScreen(main)); // Switch to SeaScreen
 
     }
 }
@@ -203,6 +220,38 @@ class SwimmingButton extends Button {
        System.out.println("Swimming button clicked");
        Main mainApp = (Main) main;
        mainApp.setCurrentScreen(new SwimmingScreen(main)); // Switch to SeaScreen
+
+    }
+}
+
+//define button subclass
+class StrandedButton extends Button {
+
+    StrandedButton(PApplet main, String label, float x, float y, float width, float height, int color) {
+        super(main, label, x, y, width, height, color); //call superclass constructor
+    }
+
+    @Override
+    public void onPress() {
+       System.out.println("Stranded button clicked");
+       Main mainApp = (Main) main;
+       mainApp.setCurrentScreen(new StrandedScreen(main)); // Switch to SeaScreen
+
+    }
+}
+
+//define button subclass
+class VacayButton extends Button {
+
+    VacayButton(PApplet main, String label, float x, float y, float width, float height, int color) {
+        super(main, label, x, y, width, height, color); //call superclass constructor
+    }
+
+    @Override
+    public void onPress() {
+       System.out.println("Vacation button clicked");
+       Main mainApp = (Main) main;
+       mainApp.setCurrentScreen(new VacationScreen(main)); // Switch to SeaScreen
 
     }
 }

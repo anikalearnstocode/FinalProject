@@ -90,7 +90,8 @@ public class DreamTree {
             if (currentNode != null && currentNode.getParent() != null) {
                 currentNode = currentNode.getParent(); //move to parent node
                 currentScreen = currentNode.getScreen(); //move to parent node's screen
-                currentScreen.setup();
+                //currentScreen.setup(); //trying this
+                //currentScreen.draw(); //trying this too - both didn't work
                 System.out.println("Going back to: " + currentScreen.getClass().getSimpleName());  // Print current node after back
             } else {
                 System.out.println("No parent node found to go back to or you're at the root."); // Print if there is no parent
@@ -103,9 +104,18 @@ public class DreamTree {
         return currentNode.getScreen();
     }
 
-    //display the current node's image as the background
+    //display the current node's image as the background - once this works im going to take the backgrounds out of the screen classes of Falling, Flying, Drowning, and Swimming - all the ones that are the end of the line
     public void displayCurrentNode() {
         currentNode.displayImage();
     }
+
+    // public void displayCurrentNode() {
+    //     if (currentNode != null) {
+    //         Screen currentScreen = currentNode.getScreen();
+    //         if (currentScreen != null) {
+    //             main.setCurrentScreen(currentScreen); // Replace this with the method to update your GUI
+    //         }
+    //     }
+    // }
 
 }

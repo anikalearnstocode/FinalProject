@@ -14,10 +14,12 @@ import processing.core.PImage;
 public abstract class Screen {
     PApplet main; //reference
     PImage background; //background image for the screen
+    AllButtons allButtons;
 
     //constructor
-    Screen(PApplet main) {
+    Screen(PApplet main, AllButtons buttons) {
         this.main = main; 
+        allButtons = buttons;
     }
 
     abstract void setup();
