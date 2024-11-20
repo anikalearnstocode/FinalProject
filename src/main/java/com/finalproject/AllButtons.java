@@ -30,7 +30,7 @@ public class AllButtons {
     ArrayList<NodeButton> allButtons;
 
     //constructor
-    AllButtons(PApplet main, float centerX, float centerY, float buttonWidth, float buttonHeight, int color) {
+    AllButtons(Main main, float centerX, float centerY, float buttonWidth, float buttonHeight, int color) {
         float buttonSpacing = 50; //set button spacing
         
         //initialize all buttons
@@ -64,21 +64,18 @@ public class AllButtons {
     //handle mousepressed for all buttons
     public void mousePressed(float mouseX, float mouseY) {
         //call mousepressed on all buttons
-        airButton.mousePressed(mouseX, mouseY);
-        seaButton.mousePressed(mouseX, mouseY);
-        boatButton.mousePressed(mouseX, mouseY);
-        inWaterButton.mousePressed(mouseX, mouseY);
-        islandButton.mousePressed(mouseX, mouseY);
-        fallingButton.mousePressed(mouseX, mouseY);
-        flyingButton.mousePressed(mouseX, mouseY);
-        drowningButton.mousePressed(mouseX, mouseY);
-        swimmingButton.mousePressed(mouseX, mouseY);
-        vacayButton.mousePressed(mouseX, mouseY);
-        strandedButton.mousePressed(mouseX, mouseY);
-
+        for (NodeButton button : allButtons) {
+            button.mousePressed(mouseX, mouseY);
+        }
 
     }
+
+    public NodeButton getButton(int i) {
+        return allButtons.get(i);
+    }
 }
+
+/* 
 
 //define button subclass
 class AirButton extends Button {
@@ -140,7 +137,7 @@ class InWaterButton extends Button {
     public void onPress() {
        System.out.println("InWater button clicked");
        Main mainApp = (Main) main;
-       mainApp.setCurrentScreen(new InWaterScreen(main)); // Switch to SeaScreen
+       mainApp.setCurrentScreen(new InWaterScreen(main, null)); // Switch to SeaScreen
 
     }
 }
@@ -255,3 +252,5 @@ class VacayButton extends Button {
 
     }
 }
+
+*/

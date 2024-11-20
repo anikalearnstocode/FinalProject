@@ -16,8 +16,8 @@
 
     
      //constructor
-    StrandedScreen(PApplet main) {
-         super(main); //call superclass constructor
+    StrandedScreen(PApplet main, AllButtons buttons) {
+         super(main, buttons); //call superclass constructor
      }
 
      @Override

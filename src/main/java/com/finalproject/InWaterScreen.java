@@ -16,8 +16,9 @@
 
     
      //constructor
-     InWaterScreen(PApplet main) {
-         super(main); //call superclass constructor
+     InWaterScreen(PApplet main, AllButtons buttons) {
+         super(main, buttons); //call superclass constructor
+         allButtons = buttons;
      }
 
      @Override
@@ -26,14 +27,13 @@
             setBackground(bg);
 
             //create buttons for the boat screen
-            allButtons = new AllButtons(main, main.width/2, main.height/2, 150, 50, main.color(0,0,50));
         }
  
      @Override
         public void draw() {
             drawBackground();
-            allButtons.swimmingButton.draw();
-            allButtons.drowningButton.draw();
+            allButtons.getButton(AllButtons.inWaterButton).draw();
+            allButtons.getButton(AllButtons.drowningButton).draw();
 
         }
 

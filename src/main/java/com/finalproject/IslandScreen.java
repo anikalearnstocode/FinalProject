@@ -16,8 +16,8 @@
 
     
      //constructor
-     IslandScreen(PApplet main) {
-         super(main); //call superclass constructor
+     IslandScreen(PApplet main, AllButtons buttons) {
+         super(main, buttons); //call superclass constructor
      }
 
      @Override
@@ -26,14 +26,14 @@
             setBackground(bg);
 
             //create buttons for the boat screen
-            allButtons = new AllButtons(main, main.width/2, main.height/2, 150, 50, main.color(0,0,50));
+            //allButtons = new AllButtons(main, main.width/2, main.height/2, 150, 50, main.color(0,0,50));
         }
  
      @Override
         public void draw() {
             drawBackground();
-            allButtons.strandedButton.draw();
-            allButtons.vacayButton.draw();
+            allButtons.getButton(AllButtons.strandedButton).draw();
+            allButtons.getButton(AllButtons.vacayButton).draw();
 
         }
 

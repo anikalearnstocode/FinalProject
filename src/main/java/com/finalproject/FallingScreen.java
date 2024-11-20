@@ -16,8 +16,8 @@
 
     
      //constructor
-     FallingScreen(PApplet main) {
-         super(main); //call superclass constructor
+     FallingScreen(PApplet main, AllButtons buttons) {
+         super(main, buttons); //call superclass constructor
      }
 
      @Override

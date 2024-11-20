@@ -16,8 +16,8 @@
 
     
      //constructor
-     BoatScreen(PApplet main) {
-         super(main); //call superclass constructor
+     BoatScreen(PApplet main, AllButtons buttons) {
+         super(main, buttons); //call superclass constructor
      }
 
      @Override
@@ -25,13 +25,14 @@
             PImage bg = main.loadImage("src/main/resources/data/boatscreenbg.png");
             setBackground(bg);
 
-            //create buttons for the boat screen
-            allButtons = new AllButtons(main, main.width/2, main.height/2, 150, 50, main.color(0,0,50));
-        }
+        //     //create buttons for the boat screen
+        //     allButtons = new AllButtons(main, main.width/2, main.height/2, 150, 50, main.color(0,0,50));
+         }
  
      @Override
         public void draw() {
             drawBackground();
+            //allButtons.getButton(AllButtons.boatButton).draw();
 
         }
 

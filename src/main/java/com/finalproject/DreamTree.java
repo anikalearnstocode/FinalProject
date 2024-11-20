@@ -11,38 +11,53 @@ public class DreamTree {
     Screen currentScreen;
 
     //constructor
-    public DreamTree(PApplet main, Screen currentScreen) {
+    public DreamTree(PApplet main, Screen currentScreen, AllButtons buttons) {
         this.main = main;
-        createTree();
+        createTree(buttons);
         this.currentScreen = currentScreen;
     }
 
     //initialize tree with sea and air categories for now
-    private void createTree() {
+    private void createTree(AllButtons buttons) {
         //create initial nodes:
 
         //DreamNode titleNode = new DreamNode(main, "Title", 1);  
-        DreamNode firstChoiceNode = new DreamNode(main, "FirstChoice", 2, null);
-        DreamNode seaNode = new DreamNode(main, "Sea", 3, "FirstChoice");
-        DreamNode airNode = new DreamNode(main, "Air", 2, "FirstChoice");
-        DreamNode boatNode = new DreamNode(main, "Boat", 2, "Sea");
-        DreamNode waterNode = new DreamNode(main, "InTheWater", 2, "Sea");
-        DreamNode islandNode = new DreamNode(main, "Island", 2, "Sea");
-        DreamNode flyingNode = new DreamNode(main, "Flying", 2, "Air");
-        DreamNode fallingNode = new DreamNode(main, "Falling", 2, "Air");
-        DreamNode swimmingNode = new DreamNode(main, "Swimming", 2, "Water");
-        DreamNode drowningNode = new DreamNode(main, "Drowning", 2, "Water");
+        DreamNode firstChoiceNode = new DreamNode(main, "FirstChoice", 2, null, buttons);
 
-        // Set the parent relationships explicitly
-        seaNode.parentNode = firstChoiceNode;
-        airNode.parentNode = firstChoiceNode;
-        boatNode.parentNode = seaNode;
-        waterNode.parentNode = seaNode;
-        islandNode.parentNode = seaNode;
-        flyingNode.parentNode = airNode;
-        fallingNode.parentNode = airNode;
-        swimmingNode.parentNode = waterNode;
-        drowningNode.parentNode = waterNode;
+        DreamNode seaNode = new DreamNode(main, "Sea", 3, "FirstChoice", buttons);
+        buttons.setupButton(this,  seaNode, AllButtons.seaButton);
+
+        DreamNode airNode = new DreamNode(main, "Air", 2, "FirstChoice", buttons);
+        buttons.setupButton(this,  airNode, AllButtons.airButton);
+
+        DreamNode boatNode = new DreamNode(main, "Boat", 2, "Sea", buttons);
+        buttons.setupButton(this,  boatNode, AllButtons.boatButton);
+
+        DreamNode waterNode = new DreamNode(main, "InTheWater", 2, "Sea", buttons);
+        buttons.setupButton(this,  waterNode, AllButtons.inWaterButton);
+
+        DreamNode islandNode = new DreamNode(main, "Island", 2, "Sea", buttons);
+        buttons.setupButton(this,  islandNode, AllButtons.islandButton);
+
+        DreamNode flyingNode = new DreamNode(main, "Flying", 2, "Air", buttons);
+        buttons.setupButton(this,  flyingNode, AllButtons.flyingButton);
+
+        DreamNode fallingNode = new DreamNode(main, "Falling", 2, "Air", buttons);
+        buttons.setupButton(this,  fallingNode, AllButtons.fallingButton);
+
+        DreamNode swimmingNode = new DreamNode(main, "Swimming", 2, "Water", buttons);
+        buttons.setupButton(this,  swimmingNode, AllButtons.swimmingButton);
+
+        DreamNode drowningNode = new DreamNode(main, "Drowning", 2, "Water", buttons);
+        buttons.setupButton(this,  drowningNode, AllButtons.drowningButton);
+
+        DreamNode strandedNode = new DreamNode(main, "Stranded", 2, "Island", buttons);
+        buttons.setupButton(this,  strandedNode, AllButtons.strandedButton);
+
+        DreamNode vacationNode = new DreamNode(main, "Vacation", 2, "Island", buttons);
+        buttons.setupButton(this, vacationNode, AllButtons.vacayButton);
+
+
 
         //add nodes to a list:
         ArrayList<DreamNode> nodesToAdd = new ArrayList<>();
@@ -55,6 +70,8 @@ public class DreamTree {
         nodesToAdd.add(fallingNode);
         nodesToAdd.add(swimmingNode);
         nodesToAdd.add(drowningNode);
+        nodesToAdd.add(vacationNode);
+        nodesToAdd.add(strandedNode);
 
 
 
@@ -90,8 +107,8 @@ public class DreamTree {
             if (currentNode != null && currentNode.getParent() != null) {
                 currentNode = currentNode.getParent(); //move to parent node
                 currentScreen = currentNode.getScreen(); //move to parent node's screen
-                //currentScreen.setup(); //trying this
-                //currentScreen.draw(); //trying this too - both didn't work
+                //pass in a main somewhere -- then setCurrentScreen 
+                
                 System.out.println("Going back to: " + currentScreen.getClass().getSimpleName());  // Print current node after back
             } else {
                 System.out.println("No parent node found to go back to or you're at the root."); // Print if there is no parent
@@ -109,13 +126,9 @@ public class DreamTree {
         currentNode.displayImage();
     }
 
-    // public void displayCurrentNode() {
-    //     if (currentNode != null) {
-    //         Screen currentScreen = currentNode.getScreen();
-    //         if (currentScreen != null) {
-    //             main.setCurrentScreen(currentScreen); // Replace this with the method to update your GUI
-    //         }
-    //     }
-    // }
+   
+    public void setCurrentNode(String name) {
+        currentNode = currentNode.getNextNode(name);
+    }
 
 }

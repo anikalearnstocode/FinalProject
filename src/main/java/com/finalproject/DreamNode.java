@@ -17,7 +17,7 @@ public class DreamNode {
     Screen screen; 
 
     //constructor
-    public DreamNode(PApplet main, String name, int childCount, String parent_) {
+    public DreamNode(PApplet main, String name, int childCount, String parent_, AllButtons buttons) {
         this.main = main;
         this.name = name;
         this.childNodes = new ArrayList<>();
@@ -26,39 +26,39 @@ public class DreamNode {
         //assign specific screens to nodes based on node name
         switch (name) {
             case "Swimming":
-            this.screen = new SwimmingScreen(main);
+            this.screen = new SwimmingScreen(main, buttons);
             break;
 
             case "Falling":
-            this.screen = new FallingScreen(main);
+            this.screen = new FallingScreen(main, buttons);
             break;
 
             case "Flying":
-            this.screen = new FlyingScreen(main);
+            this.screen = new FlyingScreen(main, buttons);
             break;
 
             case "Drowning":
-            this.screen = new DrowningScreen(main);
+            this.screen = new DrowningScreen(main, buttons);
             break;
 
             case "FirstChoice":
-            this.screen = new FirstChoiceScreen(main);
+            this.screen = new FirstChoiceScreen(main, buttons);
             break;
 
             case "Water":
-            this.screen = new InWaterScreen(main);
+            this.screen = new InWaterScreen(main, buttons);
             break;
 
             case "Sea" :
-            this.screen = new SeaScreen(main);
+            this.screen = new SeaScreen(main, buttons);
             break;
 
             case "Air":
-            this.screen = new AirScreen(main);
+            this.screen = new AirScreen(main, buttons);
             break;
 
             case "Boat":
-            this.screen = new BoatScreen(main);
+            this.screen = new BoatScreen(main, buttons);
             break;
 
             //still need to add:
@@ -131,6 +131,10 @@ public class DreamNode {
 
     public Screen getScreen() {
         return screen;
+    }
+
+    public String getName() {
+        return name;
     }
 
 }

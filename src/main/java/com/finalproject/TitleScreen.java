@@ -15,8 +15,8 @@ public class TitleScreen extends Screen {
     //PImage background;
 
     //constructor
-    public TitleScreen(Main main) {
-        super(main);
+    public TitleScreen(Main main, AllButtons buttons) {
+        super(main, buttons);
         this.main = main; //assign Main instance to the local variable
     }
 
@@ -44,9 +44,10 @@ public class TitleScreen extends Screen {
     void keyPressed() {
         //if B is pressed, change currentScreen from TitleScreen to FirstChoiceScreen
         if (main.key == 'b' || main.key == 'B') {
-            main.setCurrentScreen(new FirstChoiceScreen(main));
+            main.setCurrentScreen(new FirstChoiceScreen(main, allButtons));
+            System.out.println("Title screen clicked");
         }
-        
+ 
     }
 
     @Override

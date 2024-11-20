@@ -15,12 +15,12 @@ public class AirScreen extends Screen {
     AllButtons allButtons; //instance variable for all buttons in sea screen
 
     //constructor
-    AirScreen(PApplet main) {
-        super(main); //call superclass constructor
+    AirScreen(PApplet main, AllButtons buttons) {
+        super(main, buttons); //call superclass constructor
         PImage bg = main.loadImage("src/main/resources/data/airscreenbg.jpg");
         setBackground(bg);
 
-        allButtons = new AllButtons(main, main.width/2, main.height/2, 150, 50, main.color(0,0,50));
+        //allButtons = new AllButtons(main, main.width/2, main.height/2, 150, 50, main.color(0,0,50));
 
     }
 
@@ -32,8 +32,8 @@ public class AirScreen extends Screen {
     @Override
     public void draw() {
         drawBackground();
-        allButtons.flyingButton.draw();
-        allButtons.fallingButton.draw();
+        allButtons.getButton(AllButtons.flyingButton).draw();
+        allButtons.getButton(AllButtons.fallingButton).draw();
 
     }
 

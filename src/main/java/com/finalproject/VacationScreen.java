@@ -16,8 +16,8 @@
 
     
      //constructor
-     VacationScreen(PApplet main) {
-         super(main); //call superclass constructor
+     VacationScreen(PApplet main, AllButtons buttons) {
+         super(main, buttons); //call superclass constructor
         }
 
      @Override

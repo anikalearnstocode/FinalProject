@@ -12,11 +12,9 @@ import processing.core.PImage;
 
 public class SeaScreen extends Screen {
 
-    AllButtons allButtons; //instance variable for all buttons in sea screen
-
     //constructor
-    SeaScreen(PApplet main) {
-            super(main);
+    SeaScreen(PApplet main, AllButtons buttons) {
+            super(main, buttons);
         }
 
         //load bg img and set loaded bg img for screen
@@ -24,18 +22,15 @@ public class SeaScreen extends Screen {
         public void setup() { 
             PImage bg = main.loadImage("src/main/resources/data/seascreenbg.jpg");
             setBackground(bg);
-
-            //create buttons for the sea screen
-            allButtons = new AllButtons(main, main.width/2, main.height/2, 150, 50, main.color(0,0,50));
         }
 
         //draw bg and all buttons
         @Override
         public void draw() {
             drawBackground();
-            allButtons.boatButton.draw();
-            allButtons.inWaterButton.draw();
-            allButtons.islandButton.draw();
+            allButtons.getButton(AllButtons.boatButton).draw();
+            allButtons.getButton(AllButtons.inWaterButton).draw();
+            allButtons.getButton(AllButtons.islandButton).draw();
         }
 
         @Override

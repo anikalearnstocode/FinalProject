@@ -16,8 +16,8 @@
 
     
      //constructor
-     DrowningScreen(PApplet main) {
-         super(main); //call superclass constructor
+     DrowningScreen(PApplet main, AllButtons buttons) {
+         super(main, buttons); //call superclass constructor
      }
 
      @Override

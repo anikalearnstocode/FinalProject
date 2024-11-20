@@ -12,15 +12,15 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class FirstChoiceScreen extends Screen {    
-    private AirButton airButton; //declare air button
-    private SeaButton seaButton; //declare sea button
+    //private AirButton airButton; //declare air button
+    //private SeaButton seaButton; //declare sea button
 
     //constructor
-    public FirstChoiceScreen(PApplet main) {
-        super(main); //call superclass constructor
+    public FirstChoiceScreen(PApplet main, AllButtons buttons) {
+        super(main, buttons); //call superclass constructor
         //initialize both FirstChoice buttons
-        airButton = new AirButton(main, "Air", main.width / 2 - 100, main.height / 2, 200, 50, main.color(100, 150, 255));
-        seaButton = new SeaButton(main, "Sea", main.width / 2 + 100, main.height / 2, 200, 50, main.color(100, 150, 255));
+        //airButton = new AirButton(main, "Air", main.width / 2 - 100, main.height / 2, 200, 50, main.color(100, 150, 255));
+        //seaButton = new SeaButton(main, "Sea", main.width / 2 + 100, main.height / 2, 200, 50, main.color(100, 150, 255));
     }
 
     //set screen properties
@@ -29,14 +29,16 @@ public class FirstChoiceScreen extends Screen {
         //load and set background
         PImage bg = main.loadImage("src/main/resources/data/firstchoicebg.jpg");
         setBackground(bg);
+
+
     }
     
     //draw method to draw both buttons and background
     @Override
     void draw() {
         drawBackground();
-        airButton.draw();
-        seaButton.draw();
+        allButtons.getButton(AllButtons.airButton).draw();
+        allButtons.getButton(AllButtons.seaButton).draw();
     }
 
 
@@ -48,7 +50,7 @@ public class FirstChoiceScreen extends Screen {
     //handle mousepressed/check if air and sea buttons have been clicked
     @Override
     public void mousePressed(float mx, float my) {
-        airButton.mousePressed(mx, my);
-        seaButton.mousePressed(mx, my);
+        allButtons.mousePressed(mx, my); //call mousePressed on the buttons, passing mouse position
+
     }
 }
