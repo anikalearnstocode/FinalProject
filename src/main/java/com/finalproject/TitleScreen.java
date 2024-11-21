@@ -31,23 +31,15 @@ public class TitleScreen extends Screen {
     void draw() {
         drawBackground(); //draw bg img
 
-        // main.textAlign(main.CENTER, main.CENTER); //align text to center of screen
-        // main.fill(255); //set text color to white
-        // main.textSize(80); //set text size for title
-        // main.text("Dream Navigator", main.width / 2, main.height / 2 - 50); //draw project title
-        // main.textSize(40); //set text size for instructions
-        // main.text("Press B to Begin Your Exploration!", main.width / 2, main.height /2 + 50); //display instruction text
-
     }
 
     @Override
     void keyPressed() {
-        //if B is pressed, change currentScreen from TitleScreen to FirstChoiceScreen
         if (main.key == 'b' || main.key == 'B') {
+            // Change the current screen to FirstChoiceScreen
             main.setCurrentScreen(new FirstChoiceScreen(main, allButtons));
-            System.out.println("Title screen clicked");
-        }
  
+        }
     }
 
     @Override

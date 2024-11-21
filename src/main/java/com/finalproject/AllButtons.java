@@ -26,6 +26,8 @@ public class AllButtons {
     public static final int  swimmingButton = 8;
     public static final int  strandedButton = 9;
     public static final int vacayButton = 10;
+    public static final int choppyButton = 11;
+    public static final int calmButton = 12;
 
     ArrayList<NodeButton> allButtons;
 
@@ -46,10 +48,14 @@ public class AllButtons {
             new NodeButton(main, "Flying", centerX + buttonSpacing*2 + 220, centerY + 140, buttonWidth*2, buttonHeight*2, color),
 
             new NodeButton(main, "Swimming", centerX - buttonSpacing - 380, centerY - 250, buttonWidth + 20, buttonHeight + 20, color),
-            new NodeButton(main, "Drowning", centerX + buttonSpacing*2 + 330, centerY + 250, buttonWidth + 20, buttonHeight + 20, color),
+           new NodeButton(main, "Drowning", centerX + buttonSpacing*2 + 330, centerY + 250, buttonWidth + 20, buttonHeight + 20, color),
+
 
             new NodeButton(main, "Stranded", centerX - buttonSpacing - 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
-            new NodeButton(main, "Vacation", centerX + buttonSpacing + 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color) };
+            new NodeButton(main, "Vacation", centerX + buttonSpacing + 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
+
+            new NodeButton(main, "Choppy Waters", centerX - buttonSpacing - 150, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
+            new NodeButton(main, "Calm Waters", centerX + buttonSpacing + 150, centerY - 270, buttonWidth * 2, buttonHeight + 20, color) }; 
 
             allButtons = new ArrayList<>(Arrays.asList(buttons));
      

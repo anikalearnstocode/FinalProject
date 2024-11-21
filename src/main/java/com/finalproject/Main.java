@@ -24,10 +24,10 @@ public class Main extends PApplet {
     }
 
     public void setup() {        
-        currentScreen = new TitleScreen(this, allButtons); //start with the title screen
-        System.out.println("TitleScreen initialized: " + currentScreen); //log screen initialization
         allButtons = new AllButtons(this, width / 2, height / 2, 150, 50, color(0, 0, 255)); // Create buttons
-        currentScreen.setup(); //call setup on current screen to initialize its contents
+        currentScreen = new TitleScreen(this, allButtons); // Pass 'this' for 'Main' to the TitleScreen
+        System.out.println("TitleScreen initialized: " + currentScreen); // Log screen initialization
+        currentScreen.setup(); // Call setup on current screen to initialize its contents
 
         //new additions
         dreamTree = new DreamTree(this, currentScreen, allButtons );

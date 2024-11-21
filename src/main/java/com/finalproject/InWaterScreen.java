@@ -12,8 +12,6 @@
  
  public class InWaterScreen extends Screen {
  
-    AllButtons allButtons; //instance variable for all buttons in sea screen
-
     
      //constructor
      InWaterScreen(PApplet main, AllButtons buttons) {
@@ -32,7 +30,7 @@
      @Override
         public void draw() {
             drawBackground();
-            allButtons.getButton(AllButtons.inWaterButton).draw();
+            allButtons.getButton(AllButtons.swimmingButton).draw();
             allButtons.getButton(AllButtons.drowningButton).draw();
 
         }

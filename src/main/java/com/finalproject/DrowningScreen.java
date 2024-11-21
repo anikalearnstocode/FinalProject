@@ -12,7 +12,6 @@
  
  public class DrowningScreen extends Screen {
  
-    AllButtons allButtons; //instance variable for all buttons in sea screen
 
     
      //constructor

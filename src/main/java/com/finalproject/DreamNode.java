@@ -45,7 +45,7 @@ public class DreamNode {
             this.screen = new FirstChoiceScreen(main, buttons);
             break;
 
-            case "Water":
+            case "InTheWater":
             this.screen = new InWaterScreen(main, buttons);
             break;
 
@@ -61,14 +61,34 @@ public class DreamNode {
             this.screen = new BoatScreen(main, buttons);
             break;
 
+            case "Island":
+            this.screen = new IslandScreen(main, buttons);
+            break;
+
+            case "Stranded":
+            this.screen = new StrandedScreen(main, buttons);
+            break;
+
+            case "Vacation":
+            this.screen = new VacationScreen(main, buttons);
+            break;
+
+            case "Choppy Waters":
+            this.screen = new ChoppyWatersScreen(main, buttons);
+            break;
+
+            case "Calm Waters":
+            this.screen = new CalmWatersScreen(main, buttons);
+            break;
+
+            default: System.out.println(name+" is null") ;
+
             //still need to add:
-            //island
-            //stranded
-            //vacation
+         
             //choppy seas
             //calm seas
             
-        }
+        } 
 
     }
 

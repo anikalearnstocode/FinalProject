@@ -12,8 +12,6 @@ import processing.core.PImage;
 
 public class AirScreen extends Screen {
 
-    AllButtons allButtons; //instance variable for all buttons in sea screen
-
     //constructor
     AirScreen(PApplet main, AllButtons buttons) {
         super(main, buttons); //call superclass constructor
@@ -32,6 +30,7 @@ public class AirScreen extends Screen {
     @Override
     public void draw() {
         drawBackground();
+        assert( allButtons != null );
         allButtons.getButton(AllButtons.flyingButton).draw();
         allButtons.getButton(AllButtons.fallingButton).draw();
 

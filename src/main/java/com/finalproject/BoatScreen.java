@@ -12,27 +12,27 @@
  
  public class BoatScreen extends Screen {
  
-    AllButtons allButtons; //instance variable for all buttons in sea screen
 
     
      //constructor
-     BoatScreen(PApplet main, AllButtons buttons) {
+    BoatScreen(PApplet main, AllButtons buttons) {
          super(main, buttons); //call superclass constructor
-     }
+    }
 
      @Override
         public void setup() { 
             PImage bg = main.loadImage("src/main/resources/data/boatscreenbg.png");
             setBackground(bg);
-
-        //     //create buttons for the boat screen
-        //     allButtons = new AllButtons(main, main.width/2, main.height/2, 150, 50, main.color(0,0,50));
-         }
+        
+        }
  
      @Override
         public void draw() {
             drawBackground();
-            //allButtons.getButton(AllButtons.boatButton).draw();
+            allButtons.getButton(AllButtons.choppyButton).draw();
+            allButtons.getButton(AllButtons.calmButton).draw();
+
+
 
         }
 

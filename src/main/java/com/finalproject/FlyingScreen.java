@@ -12,8 +12,6 @@
  
  public class FlyingScreen extends Screen {
  
-    AllButtons allButtons; //instance variable for all buttons in sea screen
-
     
      //constructor
      FlyingScreen(PApplet main, AllButtons buttons) {

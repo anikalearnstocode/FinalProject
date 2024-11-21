@@ -45,10 +45,10 @@ public class DreamTree {
         DreamNode fallingNode = new DreamNode(main, "Falling", 2, "Air", buttons);
         buttons.setupButton(this,  fallingNode, AllButtons.fallingButton);
 
-        DreamNode swimmingNode = new DreamNode(main, "Swimming", 2, "Water", buttons);
+        DreamNode swimmingNode = new DreamNode(main, "Swimming", 2, "InTheWater", buttons);
         buttons.setupButton(this,  swimmingNode, AllButtons.swimmingButton);
 
-        DreamNode drowningNode = new DreamNode(main, "Drowning", 2, "Water", buttons);
+        DreamNode drowningNode = new DreamNode(main, "Drowning", 2, "InTheWater", buttons);
         buttons.setupButton(this,  drowningNode, AllButtons.drowningButton);
 
         DreamNode strandedNode = new DreamNode(main, "Stranded", 2, "Island", buttons);
@@ -56,6 +56,12 @@ public class DreamTree {
 
         DreamNode vacationNode = new DreamNode(main, "Vacation", 2, "Island", buttons);
         buttons.setupButton(this, vacationNode, AllButtons.vacayButton);
+
+        DreamNode choppyWaters = new DreamNode(main, "Choppy Waters", 2, "Boat", buttons);
+        buttons.setupButton(this, choppyWaters, AllButtons.choppyButton);
+
+        DreamNode calmWaters = new DreamNode(main, "Calm Waters", 2, "Boat", buttons);
+        buttons.setupButton(this, calmWaters, AllButtons.calmButton);
 
 
 
@@ -72,13 +78,16 @@ public class DreamTree {
         nodesToAdd.add(drowningNode);
         nodesToAdd.add(vacationNode);
         nodesToAdd.add(strandedNode);
+        nodesToAdd.add(choppyWaters);
+        nodesToAdd.add(calmWaters);
 
 
 
         //set up tree structure:
         root = firstChoiceNode;
         root.addNextNodes(nodesToAdd);
-        currentNode = seaNode;
+        currentNode = firstChoiceNode;
+        
         //currentScreen = currentNode.getScreen();  // This updates the screen to the parent node's screen
 
 

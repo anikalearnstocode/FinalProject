@@ -12,8 +12,6 @@
  
  public class StrandedScreen extends Screen {
  
-    AllButtons allButtons; //instance variable for all buttons in sea screen
-
     
      //constructor
     StrandedScreen(PApplet main, AllButtons buttons) {

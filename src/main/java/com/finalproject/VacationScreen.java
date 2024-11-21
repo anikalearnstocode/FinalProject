@@ -11,9 +11,6 @@
  import processing.core.PImage;
  
  public class VacationScreen extends Screen {
- 
-    AllButtons allButtons; //instance variable for all buttons in sea screen
-
     
      //constructor
      VacationScreen(PApplet main, AllButtons buttons) {

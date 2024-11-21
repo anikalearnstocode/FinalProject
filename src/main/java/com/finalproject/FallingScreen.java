@@ -12,8 +12,6 @@
  
  public class FallingScreen extends Screen {
  
-    AllButtons allButtons; //instance variable for all buttons in sea screen
-
     
      //constructor
      FallingScreen(PApplet main, AllButtons buttons) {

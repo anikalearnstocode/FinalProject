@@ -12,8 +12,6 @@
  
  public class IslandScreen extends Screen {
  
-    AllButtons allButtons; //instance variable for all buttons in sea screen
-
     
      //constructor
      IslandScreen(PApplet main, AllButtons buttons) {

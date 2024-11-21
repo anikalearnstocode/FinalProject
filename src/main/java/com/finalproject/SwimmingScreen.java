@@ -12,8 +12,6 @@
  
  public class SwimmingScreen extends Screen {
  
-    AllButtons allButtons; //instance variable for all buttons in sea screen
-
     
      //constructor
      SwimmingScreen(PApplet main, AllButtons buttons) {
