@@ -1,6 +1,6 @@
 /*
  * Anika Krieger
- * Nov 11
+ * Nov 21
  * Button Class
  * Description: Abstract class representing a generic button
  */
@@ -26,10 +26,12 @@ public abstract class Button {
         this.color = color;
     }
 
+    //overrided constructor
     Button(PApplet main, String label, float x, float y, float width, float height) { //overloaded constructor without color
         this(main, label, x, y, width, height, main.color(23, 50, 155)); //default color is set to blue
     }
 
+    //draw method
     public void draw() {
         main.fill(color); //set button fill color
         main.rectMode(PApplet.CENTER); //set rectangle mode to center
@@ -42,6 +44,7 @@ public abstract class Button {
         main.text(label, x, y); //draw button label text
     }
 
+    //mousepressed method
     public void mousePressed(float mx, float my) { //method to handle mouse press on button
         if (mx > x - width / 2 && mx < x + width / 2 && my > y - height / 2 && my < y + height / 2) {
             onPress(); //call on press if within bounds

@@ -1,29 +1,27 @@
 /*
  * Anika Krieger
- * Nov 11
- * Screen Class
- * Description: Sets background and other stuff for the title
+ * Nov 21
+ * Title Screen Class
+ * Description: Represents the title screen of the application. Handles background setup, display, and navigation to the next screen based on user input.
  */
 
 package com.finalproject;
 
-//import processing.core.PApplet;
 import processing.core.PImage;
 
 public class TitleScreen extends Screen {
-    Main main;
-    //PImage background;
+    Main main; //reference to main application instance
 
     //constructor
     public TitleScreen(Main main, AllButtons buttons) {
-        super(main, buttons);
+        super(main, buttons); //call superclass constructor
         this.main = main; //assign Main instance to the local variable
     }
 
     //set up method for title screen, load title screen bg img, set bg img for title screen as bg
     @Override
     void setup() {
-            PImage bg = main.loadImage("titlepagebg.jpg");
+            PImage bg = main.loadImage("titlepagebg.jpg"); //load the bg image
             setBackground(bg);  // Only set the background if the image is loaded
        
     }
@@ -33,8 +31,10 @@ public class TitleScreen extends Screen {
 
     }
 
+    //key pressed
     @Override
     void keyPressed() {
+        //if B is pressed, navigates to firstchoicescreen
         if (main.key == 'b' || main.key == 'B') {
             // Change the current screen to FirstChoiceScreen
             main.setCurrentScreen(new FirstChoiceScreen(main, allButtons));
@@ -42,6 +42,7 @@ public class TitleScreen extends Screen {
         }
     }
 
+    //mousepressed - empty currently
     @Override
     void mousePressed(float mx, float my) {
        

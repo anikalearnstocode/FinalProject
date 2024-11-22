@@ -1,8 +1,13 @@
 /*
  * Anika Krieger
- * Nov 11
- * BoatScreen Class
- * Description: Represents the boat screen, contains methods for setting up, drawing, and handling interaction
+ * Nov 21
+ * InWaterScreen Class
+ * Description: Represents the InWaterScreen of the application. Displays a background image and buttons.
+ * Responsibilities:
+ * - Loads and sets a background image for the screen.
+ * - Draws the background and buttons on the screen.
+ * - Handles mouse interactions to detect when buttons are clicked.
+ * - Ensures smooth integration with the overall screen navigation system.
  */
 
  package com.finalproject;
@@ -16,18 +21,19 @@
      //constructor
      InWaterScreen(PApplet main, AllButtons buttons) {
          super(main, buttons); //call superclass constructor
-         allButtons = buttons;
+         //allButtons = buttons;
      }
 
-     @Override
+        //setup: load and set the bg image
+        @Override
         public void setup() { 
             PImage bg = main.loadImage("src/main/resources/data/inwaterscreen.png");
             setBackground(bg);
 
-            //create buttons for the boat screen
         }
  
-     @Override
+        //draw: draw the background image and draw the buttons
+        @Override
         public void draw() {
             drawBackground();
             allButtons.getButton(AllButtons.swimmingButton).draw();
@@ -35,13 +41,18 @@
 
         }
 
+        //keypressed (no input)
         @Override
-        public void keyPressed() {}
-
-        @Override
-        void mousePressed(float mx, float my) {
-            allButtons.mousePressed(mx, my); //call mousePressed on the buttons, passing mouse position
+        void keyPressed() {
+            
         }
+
+        //handle mousepressed/check if buttons have been clicked
+        @Override
+        public void mousePressed(float mx, float my) {
+            allButtons.mousePressed(mx, my); //call mousePressed on the buttons, passing mouse position
+
+    }
  
 
 }

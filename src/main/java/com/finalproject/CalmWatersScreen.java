@@ -1,8 +1,8 @@
 /*
  * Anika Krieger
- * Nov 11
- * BoatScreen Class
- * Description: Represents the boat screen, contains methods for setting up, drawing, and handling interaction
+ * Nov 21
+ * CalmWatersScreen Class
+ * Description: Represents the final destination of the "calm waters (boat) (sea)" path in the dream tree. This class handles the setup and rendering of the screen, including loading and displaying a background image.
  */
 
  package com.finalproject;
@@ -18,21 +18,23 @@
          super(main, buttons); //call superclass constructor
      }
 
+     //setup: load and set the bg imag
      @Override
         public void setup() { 
             PImage bg = main.loadImage("src/main/resources/data/calmboatscreen.png");
             setBackground(bg);
         }
  
-     @Override
+        //draw: draw the background image
+        @Override
         public void draw() {
             drawBackground();
         }
 
-        @Override
+        @Override        //keypressed (no input needed)
         public void keyPressed() {}
 
-        @Override
+        @Override        //mousepressed (no input needed)
         void mousePressed(float mx, float my) {
         }
  

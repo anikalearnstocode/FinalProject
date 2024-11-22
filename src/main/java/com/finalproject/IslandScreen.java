@@ -1,8 +1,8 @@
 /*
  * Anika Krieger
- * Nov 11
- * BoatScreen Class
- * Description: Represents the boat screen, contains methods for setting up, drawing, and handling interaction
+ * Nov 21
+ * IslandScreen Class
+ * Description: Represents the island screen, contains methods for setting up, drawing, and handling interactions.
  */
 
  package com.finalproject;
@@ -11,33 +11,34 @@
  import processing.core.PImage;
  
  public class IslandScreen extends Screen {
- 
     
      //constructor
      IslandScreen(PApplet main, AllButtons buttons) {
          super(main, buttons); //call superclass constructor
      }
 
+     //setup method
      @Override
         public void setup() { 
-            PImage bg = main.loadImage("src/main/resources/data/islandscreenbg.png");
-            setBackground(bg);
-
-            //create buttons for the boat screen
-            //allButtons = new AllButtons(main, main.width/2, main.height/2, 150, 50, main.color(0,0,50));
+            PImage bg = main.loadImage("src/main/resources/data/islandscreenbg.png"); //load bg image for the island screen
+            setBackground(bg); //set loaded image as bg of screen
         }
  
+     //draw method for rendering elements on screen
      @Override
         public void draw() {
-            drawBackground();
+            drawBackground(); //draw bg img that was set in setup method
+            //draw buttons on the screen
             allButtons.getButton(AllButtons.strandedButton).draw();
             allButtons.getButton(AllButtons.vacayButton).draw();
 
         }
 
+        //key pressed method
         @Override
         public void keyPressed() {}
 
+        //mousepressed method that calls mousepressed method of allbuttons and passes the current mouse positions
         @Override
         void mousePressed(float mx, float my) {
             allButtons.mousePressed(mx, my); //call mousePressed on the buttons, passing mouse position

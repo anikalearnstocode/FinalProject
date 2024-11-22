@@ -1,22 +1,22 @@
 /*
  * Anika Krieger
- * Nov 11
+ * Nov 21
  * Main Class
- * Description: Main app class that initializes screen and handles events
+ * Description: Entry point for the application, responsible for initializing the screens, managing the event loop, and handling user input.
  */
 
 package com.finalproject;
 
 import processing.core.PApplet;
-//import java.util.ArrayList;
-//import processing.core.PImage;
 
 public class Main extends PApplet {
     Screen currentScreen; //instance variable to store current screen
     AllButtons allButtons; //instance variable to store all buttons
-    DreamTree dreamTree;
+    DreamTree dreamTree; //instance variable for managing the decision tree
+
+    //constructor
     public static void main(String[] args) {
-        PApplet.main("com.finalproject.Main");
+        PApplet.main("com.finalproject.Main"); //specify main processing class
     }
 
     public void settings() {
@@ -25,11 +25,11 @@ public class Main extends PApplet {
 
     public void setup() {        
         allButtons = new AllButtons(this, width / 2, height / 2, 150, 50, color(0, 0, 255)); // Create buttons
-        currentScreen = new TitleScreen(this, allButtons); // Pass 'this' for 'Main' to the TitleScreen
+        currentScreen = new TitleScreen(this, allButtons); // Pass 'this' for 'Main' to the TitleScreen, set initial screen to titlescreen
         System.out.println("TitleScreen initialized: " + currentScreen); // Log screen initialization
         currentScreen.setup(); // Call setup on current screen to initialize its contents
 
-        //new additions
+        //initialize the tree
         dreamTree = new DreamTree(this, currentScreen, allButtons );
     }
 
@@ -41,7 +41,7 @@ public class Main extends PApplet {
     public void keyPressed() {
         currentScreen.keyPressed(); //call keypressed on current screen to handle keyboard input
 
-        //call backbutton from dreamtree
+        //call backbutton from dreamtree (not currently functional)
         dreamTree.keyPressed();
         
     }

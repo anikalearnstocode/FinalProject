@@ -1,8 +1,13 @@
 /*
  * Anika Krieger
- * Nov 11
+ * Nov 21
  * BoatScreen Class
- * Description: Represents the boat screen, contains methods for setting up, drawing, and handling interaction
+ * Description: Represents the BoatScreen of the application. Displays a background image and two buttons—Choppy Waters and Calm Waters—that allow the user to select the next screen.
+ * Responsibilities:
+ * - Loads and sets a background image for the screen.
+ * - Draws the background and buttons on the screen.
+ * - Handles mouse interactions to detect when buttons are clicked.
+ * - Ensures smooth integration with the overall screen navigation system.
  */
 
  package com.finalproject;
@@ -11,7 +16,6 @@
  import processing.core.PImage;
  
  public class BoatScreen extends Screen {
- 
 
     
      //constructor
@@ -19,29 +23,33 @@
          super(main, buttons); //call superclass constructor
     }
 
-     @Override
+        //setuo: load and set the bg image
+         @Override
         public void setup() { 
             PImage bg = main.loadImage("src/main/resources/data/boatscreenbg.png");
             setBackground(bg);
         
         }
  
-     @Override
+        //draw: draw the background image and draw the buttons
+        @Override
         public void draw() {
             drawBackground();
             allButtons.getButton(AllButtons.choppyButton).draw();
             allButtons.getButton(AllButtons.calmButton).draw();
-
-
-
         }
 
+        //keypressed (no input)
         @Override
-        public void keyPressed() {}
+        void keyPressed() {
+            
+        }
 
+        //handle mousepressed/check if buttons have been clicked
         @Override
-        void mousePressed(float mx, float my) {
+        public void mousePressed(float mx, float my) {
             allButtons.mousePressed(mx, my); //call mousePressed on the buttons, passing mouse position
+
         }
  
 

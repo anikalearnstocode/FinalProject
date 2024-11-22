@@ -1,3 +1,10 @@
+/*
+ * Anika Krieger
+ * Nov 21
+ * Dream Tree class
+ * Description: Manages the structure of the dream tree. It connects DreamNode objects, handles the tree navigation, loads images for specific nodes, and manages the transitions between nodes and screens based on user input.
+ */
+
 package com.finalproject;
 import java.util.ArrayList;
 
@@ -5,16 +12,16 @@ import processing.core.PApplet;
 import processing.core.PImage;
 
 public class DreamTree {
-    PApplet main;
-    DreamNode root;
-    DreamNode currentNode;
-    Screen currentScreen;
+    PApplet main; //reference to main app
+    DreamNode root; //root node of the tree
+    DreamNode currentNode; //current active node in the tree
+    Screen currentScreen; //current screen associated with current node
 
     //constructor
     public DreamTree(PApplet main, Screen currentScreen, AllButtons buttons) {
-        this.main = main;
-        createTree(buttons);
-        this.currentScreen = currentScreen;
+        this.main = main; //assign main processing app
+        createTree(buttons); //initialize the tree with buttons
+        this.currentScreen = currentScreen; //set the current screen
     }
 
     //initialize tree with sea and air categories for now
@@ -82,20 +89,22 @@ public class DreamTree {
         nodesToAdd.add(calmWaters);
 
 
-
         //set up tree structure:
-        root = firstChoiceNode;
-        root.addNextNodes(nodesToAdd);
-        currentNode = firstChoiceNode;
+        root = firstChoiceNode; //set root to first choice node
+        root.addNextNodes(nodesToAdd); //add all nodes to the tree
+        currentNode = firstChoiceNode; //set current node to the root
         
-        //currentScreen = currentNode.getScreen();  // This updates the screen to the parent node's screen
-
 
         //load images for end nodes:
         loadNodeImages(fallingNode, "src/main/resources/data/fallingscreenbg.png");
         loadNodeImages(flyingNode, "src/main/resources/data/flyingscreenbg.png");
         loadNodeImages(drowningNode, "src/main/resources/data/drowningscreenbg.png");
         loadNodeImages(swimmingNode, "src/main/resources/data/swimmingscreenbg.png");
+        loadNodeImages(swimmingNode, "src/main/resources/data/choppyboatscreen.png");
+        loadNodeImages(swimmingNode, "src/main/resources/data/calmboatscreen.png");
+        loadNodeImages(swimmingNode, "src/main/resources/data/strandedscreenbg.png");
+        loadNodeImages(swimmingNode, "src/main/resources/data/vacayscreenbg.png");
+
 
     }
 
@@ -110,14 +119,14 @@ public class DreamTree {
         }
     }
 
-    //set up the back button to travel through the tree!
+    //set up the back button to travel through the tree! currently not working
     public void keyPressed() {
         if (main.key == 'p' || main.key == 'P') {
             if (currentNode != null && currentNode.getParent() != null) {
                 currentNode = currentNode.getParent(); //move to parent node
                 currentScreen = currentNode.getScreen(); //move to parent node's screen
-                //pass in a main somewhere -- then setCurrentScreen 
                 
+                //figure out whether or not its working
                 System.out.println("Going back to: " + currentScreen.getClass().getSimpleName());  // Print current node after back
             } else {
                 System.out.println("No parent node found to go back to or you're at the root."); // Print if there is no parent
@@ -127,17 +136,18 @@ public class DreamTree {
 
     //get the current screen
     public Screen getCurrentScreen() {
-        return currentNode.getScreen();
+        return currentNode.getScreen(); //return current screen
     }
 
     //display the current node's image as the background - once this works im going to take the backgrounds out of the screen classes of Falling, Flying, Drowning, and Swimming - all the ones that are the end of the line
     public void displayCurrentNode() {
-        currentNode.displayImage();
+        currentNode.displayImage(); //displayimage at current node
     }
 
    
+    //set current node
     public void setCurrentNode(String name) {
-        currentNode = currentNode.getNextNode(name);
+        currentNode = currentNode.getNextNode(name); //find the child node with the given name and set it as the current node
     }
 
 }
