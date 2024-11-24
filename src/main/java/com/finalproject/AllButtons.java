@@ -29,6 +29,7 @@ public class AllButtons {
     public static final int vacayButton = 10; //delcare vacation button
     public static final int choppyButton = 11; //declare choppy waters button
     public static final int calmButton = 12; //declare calm waters button
+    public static final int backButton = 13; //declare back button
 
     //list to store all button instances
     ArrayList<NodeButton> allButtons; 
@@ -57,7 +58,9 @@ public class AllButtons {
             new NodeButton(main, "Vacation", centerX + buttonSpacing + 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
 
             new NodeButton(main, "Choppy Waters", centerX - buttonSpacing - 150, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
-            new NodeButton(main, "Calm Waters", centerX + buttonSpacing + 150, centerY - 270, buttonWidth * 2, buttonHeight + 20, color) }; 
+            new NodeButton(main, "Calm Waters", centerX + buttonSpacing + 150, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
+        
+            new NodeButton(main, "Back", 20, 1000, buttonWidth/2, buttonHeight/2, 255)    }; 
 
             //store all buttons in an arraylist
             allButtons = new ArrayList<>(Arrays.asList(buttons));
@@ -69,6 +72,7 @@ public class AllButtons {
     public void setupButton(DreamTree tree, DreamNode node, int i)
     {
         allButtons.get(i).setNodeAndTree(node, tree); //associate button with corresponding node and place in the tree
+        
     }
 
     //handle mousepressed for all buttons
@@ -84,5 +88,13 @@ public class AllButtons {
     public NodeButton getButton(int i) {
         return allButtons.get(i); //return button via index
     }
+
+    public void setUpBackButton(DreamTree tree) {
+        NodeButton backButton = new NodeButton(main, "Back", 20, 1000, 150/2, 50/2, color(255, 0, 0)); // Position & size
+        backButton.setNodeAndTree(tree);
+        allButtons.add(backButton);
+    }
+
+    for (NodeButton butto : allButtons) {}
 
 }
