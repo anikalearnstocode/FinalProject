@@ -38,6 +38,8 @@
             drawBackground();
             allButtons.getButton(AllButtons.swimmingButton).draw();
             allButtons.getButton(AllButtons.drowningButton).draw();
+            allButtons.getButton(AllButtons.backButton).draw();
+
 
         }
 

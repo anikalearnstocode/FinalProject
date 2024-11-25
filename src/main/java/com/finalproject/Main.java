@@ -35,6 +35,10 @@ public class Main extends PApplet {
 
     public void draw() {
         currentScreen.draw(); //call draw on current screen to update screen content
+
+        if (dreamTree != null) {
+            dreamTree.getCurrentScreen().draw();
+        }
     
     }
 
@@ -43,7 +47,12 @@ public class Main extends PApplet {
 
         //call backbutton from dreamtree (not currently functional)
         dreamTree.keyPressed();
-        
+
+        //reset to first choice screen - feels like the simplest reset option
+        if (key == 'r' || key == 'R') {
+            currentScreen = new FirstChoiceScreen(this, allButtons);
+            //FirstChoiceScreen.draw();
+        }
     }
 
 
@@ -57,6 +66,7 @@ public class Main extends PApplet {
        if (allButtons != null) {
         allButtons.mousePressed(mouseX, mouseY);
         }
+
 
     }
 

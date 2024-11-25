@@ -36,6 +36,19 @@ public class NodeButton extends Button {
         tree.setCurrentNode(linkedNode.name); // Update the current node
         actualMain.setCurrentScreen(tree.getCurrentScreen()); //change active screen
     }
+
+    @Override
+    public void mousePressed(float mx, float my) {
+        if (mx > x - width / 2 && mx < x + width / 2 && my > y - height / 2 && my < y + height / 2) {
+            onPress(); //call on press if within bounds
+        }
+
+        //call dream tree's method to navigate back to the root
+        if (this.label.equals("Back to Start")) {
+            actualMain.dreamTree.gotoStart();
+        }
+    }
+
 }
 
 

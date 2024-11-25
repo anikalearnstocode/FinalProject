@@ -29,6 +29,8 @@
         @Override
         public void draw() {
             drawBackground();
+            allButtons.getButton(AllButtons.backButton).draw();
+
         }
 
         @Override        //keypressed (no input needed)

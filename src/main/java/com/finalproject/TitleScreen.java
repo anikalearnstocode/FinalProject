@@ -28,6 +28,7 @@ public class TitleScreen extends Screen {
 
     void draw() {
         drawBackground(); //draw bg img
+        
 
     }
 

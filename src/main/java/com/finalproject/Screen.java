@@ -29,7 +29,7 @@ public abstract class Screen {
         this.background = bg;
     }
 
-    void drawBackground() { //draws bg img on screen
+    public void drawBackground() { //draws bg img on screen
         if (background != null) { //check if bg img exists
             main.image(background, 0, 0, main.width, main.height); //if so, draw bg img scaled to the window size
         } 

@@ -25,12 +25,22 @@ public class DreamNode {
     String parentName = "FirstChoice"; //name of parent node
     Screen screen;  //screen associated with node
 
+    Screen associatedScreen;
+    ArrayList<DreamNode> children;
+    DreamNode parent;
+
     //constructor
     public DreamNode(PApplet main, String name, int childCount, String parent_, AllButtons buttons) {
         this.main = main; //assign main processing reference
         this.name = name; //assign name of this node
         this.childNodes = new ArrayList<>(); //initialize child node list
         parentName = parent_; //assign pareent node's name
+
+
+        this.associatedScreen = screen;
+        this.parent = parent;
+        this.children = new ArrayList<>();
+
 
         //assign specific screens to nodes based on node name
         //these all create the screens for the nodes!!!!

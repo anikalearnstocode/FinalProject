@@ -37,6 +37,8 @@
             drawBackground();
             allButtons.getButton(AllButtons.choppyButton).draw();
             allButtons.getButton(AllButtons.calmButton).draw();
+            allButtons.getButton(AllButtons.backButton).draw();
+
         }
 
         //keypressed (no input)

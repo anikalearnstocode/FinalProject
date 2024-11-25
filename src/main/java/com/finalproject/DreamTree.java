@@ -94,6 +94,10 @@ public class DreamTree {
         root.addNextNodes(nodesToAdd); //add all nodes to the tree
         currentNode = firstChoiceNode; //set current node to the root
         
+        //ensure root screen is correctly set
+        if (root != null && root.getScreen() != null) {
+            System.out.println("First choice screen set for root node.");
+        }
 
         //load images for end nodes:
         loadNodeImages(fallingNode, "src/main/resources/data/fallingscreenbg.png");
@@ -149,5 +153,16 @@ public class DreamTree {
     public void setCurrentNode(String name) {
         currentNode = currentNode.getNextNode(name); //find the child node with the given name and set it as the current node
     }
+
+    public void gotoStart() {
+        if (root != null) {
+            currentNode = root; //set root node as current node
+            currentScreen = root.getScreen(); //set screen of root node
+            System.out.println("Returning to firstchoicescreen");
+        } else {
+            System.out.println("root node is null");
+        }
+    }
+
 
 }

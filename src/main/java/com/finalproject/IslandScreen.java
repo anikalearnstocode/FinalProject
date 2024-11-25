@@ -31,6 +31,8 @@
             //draw buttons on the screen
             allButtons.getButton(AllButtons.strandedButton).draw();
             allButtons.getButton(AllButtons.vacayButton).draw();
+            allButtons.getButton(AllButtons.backButton).draw();
+
 
         }
 

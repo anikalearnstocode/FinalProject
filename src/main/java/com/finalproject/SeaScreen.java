@@ -33,6 +33,8 @@ public class SeaScreen extends Screen {
             allButtons.getButton(AllButtons.boatButton).draw();
             allButtons.getButton(AllButtons.inWaterButton).draw();
             allButtons.getButton(AllButtons.islandButton).draw();
+            allButtons.getButton(AllButtons.backButton).draw();
+
         }
 
         //handles keypressed
