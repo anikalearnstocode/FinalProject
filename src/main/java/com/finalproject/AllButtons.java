@@ -29,7 +29,7 @@ public class AllButtons {
     public static final int vacayButton = 10; //delcare vacation button
     public static final int choppyButton = 11; //declare choppy waters button
     public static final int calmButton = 12; //declare calm waters button
-    public static final  int backButton = 13; //declare back button
+    public static final int restartButton = 13; //delcare restart button
 
     //list to store all button instances
     ArrayList<NodeButton> allButtons; 
@@ -58,9 +58,11 @@ public class AllButtons {
             new NodeButton(main, "Vacation", centerX + buttonSpacing + 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
 
             new NodeButton(main, "Choppy Waters", centerX - buttonSpacing - 150, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
-            new NodeButton(main, "Calm Waters", centerX + buttonSpacing + 150, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
+            new NodeButton(main, "Calm Waters", centerX + buttonSpacing + 150, centerY - 270, buttonWidth * 2, buttonHeight + 20, color), 
         
-            new NodeButton(main, "Back to Start", 100, 1000, buttonWidth, buttonHeight, 0)    }; 
+            new NodeButton(main, "Restart", centerX, centerY - 600, buttonWidth * 2, buttonHeight + 20, color) 
+
+            }; 
 
             //store all buttons in an arraylist
             allButtons = new ArrayList<>(Arrays.asList(buttons));
@@ -72,7 +74,6 @@ public class AllButtons {
     public void setupButton(DreamTree tree, DreamNode node, int i)
     {
         allButtons.get(i).setNodeAndTree(node, tree); //associate button with corresponding node and place in the tree
-        
     }
 
     //handle mousepressed for all buttons
@@ -88,6 +89,5 @@ public class AllButtons {
     public NodeButton getButton(int i) {
         return allButtons.get(i); //return button via index
     }
-
 
 }

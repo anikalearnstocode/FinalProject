@@ -37,7 +37,7 @@
             drawBackground();
             allButtons.getButton(AllButtons.choppyButton).draw();
             allButtons.getButton(AllButtons.calmButton).draw();
-            allButtons.getButton(AllButtons.backButton).draw();
+            //allButtons.getButton(AllButtons.backButton).draw();
 
         }
 

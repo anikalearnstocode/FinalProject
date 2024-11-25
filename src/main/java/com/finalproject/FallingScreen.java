@@ -30,7 +30,7 @@
         @Override
         public void draw() {
             drawBackground();
-            allButtons.getButton(AllButtons.backButton).draw();
+            //allButtons.getButton(AllButtons.backButton).draw();
 
 
         }

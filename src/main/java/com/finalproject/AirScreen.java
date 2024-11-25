@@ -36,7 +36,7 @@ public class AirScreen extends Screen {
         //draw specific buttons for this screen
         allButtons.getButton(AllButtons.flyingButton).draw();
         allButtons.getButton(AllButtons.fallingButton).draw();
-        allButtons.getButton(AllButtons.backButton).draw();
+        //allButtons.getButton(AllButtons.backButton).draw();
 
 
     }

@@ -32,8 +32,6 @@ public class FirstChoiceScreen extends Screen {
         drawBackground(); //draw bg img
         allButtons.getButton(AllButtons.airButton).draw(); //draw air button
         allButtons.getButton(AllButtons.seaButton).draw(); //draw sea button
-        allButtons.getButton(AllButtons.backButton).draw();
-
     }
 
 
