@@ -36,29 +36,29 @@ public class AllButtons {
 
     //constructor
     AllButtons(Main main, float centerX, float centerY, float buttonWidth, float buttonHeight, int color) {
-        float buttonSpacing = 50; //set button spacing
+        //float buttonSpacing = 50; //set button spacing
         
         //initialize all buttons with positions, dimensions, and labels
         NodeButton[] buttons =
-        {   new NodeButton(main, "Air", centerX - buttonSpacing*2, centerY, buttonWidth, buttonHeight, color),
-            new NodeButton(main, "Sea", centerX + buttonSpacing*2, centerY, buttonWidth, buttonHeight, color),
+        {   new NodeButton(main, "Air", centerX - 100, centerY, buttonWidth, buttonHeight, color),
+            new NodeButton(main, "Sea", centerX + 100, centerY, buttonWidth, buttonHeight, color),
         
-            new NodeButton(main, "Boat", centerX - 525 - buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),
-            new NodeButton(main, "In The Water", centerX + 60 - buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),
-            new NodeButton(main, "Island", centerX + 515 + buttonSpacing, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),
+            new NodeButton(main, "Boat", centerX - 525 - 50, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),
+            new NodeButton(main, "In The Water", centerX + 60 - 50, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),
+            new NodeButton(main, "Island", centerX + 515 + 50, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),
 
-            new NodeButton(main, "Falling", centerX - buttonSpacing - 540, centerY - 200, buttonWidth*2, buttonHeight*2, color),
-            new NodeButton(main, "Flying", centerX + buttonSpacing*2 + 220, centerY + 140, buttonWidth*2, buttonHeight*2, color),
+            new NodeButton(main, "Falling", centerX - 50 - 540, centerY - 200, buttonWidth*2, buttonHeight*2, color),
+            new NodeButton(main, "Flying", centerX + 50*2 + 220, centerY + 140, buttonWidth*2, buttonHeight*2, color),
 
-            new NodeButton(main, "Swimming", centerX - buttonSpacing - 380, centerY - 250, buttonWidth + 20, buttonHeight + 20, color),
-           new NodeButton(main, "Drowning", centerX + buttonSpacing*2 + 330, centerY + 250, buttonWidth + 20, buttonHeight + 20, color),
+            new NodeButton(main, "Swimming", centerX - 50 - 380, centerY - 250, buttonWidth + 20, buttonHeight + 20, color),
+           new NodeButton(main, "Drowning", centerX + 50*2 + 330, centerY + 250, buttonWidth + 20, buttonHeight + 20, color),
 
 
-            new NodeButton(main, "Stranded", centerX - buttonSpacing - 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
-            new NodeButton(main, "Vacation", centerX + buttonSpacing + 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
+            new NodeButton(main, "Stranded", centerX - 50 - 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
+            new NodeButton(main, "Vacation", centerX + 50 + 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
 
-            new NodeButton(main, "Choppy Waters", centerX - buttonSpacing - 150, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
-            new NodeButton(main, "Calm Waters", centerX + buttonSpacing + 150, centerY - 270, buttonWidth * 2, buttonHeight + 20, color), 
+            new NodeButton(main, "Choppy Waters", centerX - 50 - 150, centerY - 500, buttonWidth * 2, buttonHeight + 20, color),
+            new NodeButton(main, "Calm Waters", centerX + 50 + 150, centerY - 500, buttonWidth * 2, buttonHeight + 20, color), 
         
             new NodeButton(main, "Restart", centerX, centerY - 600, buttonWidth * 2, buttonHeight + 20, color) 
 
@@ -82,7 +82,6 @@ public class AllButtons {
         for (NodeButton button : allButtons) {
             button.mousePressed(mouseX, mouseY);
         }
-
     }
 
     //get specific button by its index
