@@ -58,7 +58,7 @@ public class AllButtons {
             new NodeButton(main, "Choppy Waters", centerX - 150, centerY - 150, buttonWidth * 2, buttonHeight *2, color),
             new NodeButton(main, "Calm Waters", centerX + 150, centerY - 150 , buttonWidth * 2, buttonHeight *2, color), 
         
-            new NodeButton(main, "Restart", centerX, centerY - 600, buttonWidth * 2, buttonHeight + 20, color) 
+            //new NodeButton(main, "Restart", centerX, centerY - 600, buttonWidth * 2, buttonHeight + 20, color) 
 
             }; 
 
