@@ -9,7 +9,6 @@
  import java.util.ArrayList;
 import java.util.Arrays;
 
-import processing.core.PApplet;
 
 
 public class AllButtons {
@@ -40,8 +39,8 @@ public class AllButtons {
         
         //initialize all buttons with positions, dimensions, and labels
         NodeButton[] buttons =
-        {   new NodeButton(main, "Air", centerX - 100, centerY, buttonWidth, buttonHeight, color),
-            new NodeButton(main, "Sea", centerX + 100, centerY, buttonWidth, buttonHeight, color),
+        {   new NodeButton(main, "Air", centerX - 150, centerY, buttonWidth * 2, buttonHeight * 2, color),
+            new NodeButton(main, "Sea", centerX + 150, centerY, buttonWidth * 2, buttonHeight * 2, color),
         
             new NodeButton(main, "Boat", centerX - 525 - 50, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),
             new NodeButton(main, "In The Water", centerX + 60 - 50, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),

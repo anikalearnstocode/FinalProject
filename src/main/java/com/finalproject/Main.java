@@ -24,7 +24,7 @@ public class Main extends PApplet {
     }
 
     public void setup() {        
-        allButtons = new AllButtons(this, width / 2, height / 2, 150, 50, color(0, 0, 255)); // Create buttons
+        allButtons = new AllButtons(this, width / 2, height / 2, 150, 50, color(33, 123, 150)); // Create buttons
         currentScreen = new TitleScreen(this, allButtons); // Pass 'this' for 'Main' to the TitleScreen, set initial screen to titlescreen
         System.out.println("TitleScreen initialized: " + currentScreen); // Log screen initialization
         currentScreen.setup(); // Call setup on current screen to initialize its contents

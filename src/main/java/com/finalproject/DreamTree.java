@@ -8,19 +8,17 @@
 package com.finalproject;
 import java.util.ArrayList;
 
-import processing.core.PApplet;
 import processing.core.PImage;
 
 public class DreamTree {
-    //PApplet main; //reference to main app
-    Main main;
+    Main main; //reference to the main
     DreamNode root; //root node of the tree
     DreamNode currentNode; //current active node in the tree
     Screen currentScreen; //current screen associated with current node
 
     //constructor
     public DreamTree(Main main, Screen currentScreen, AllButtons buttons) {
-        this.main = main; //assign main processing app
+        this.main = main; //assign main
         createTree(buttons); //initialize the tree with buttons
         this.currentScreen = currentScreen; //set the current screen
     }
@@ -126,7 +124,7 @@ public class DreamTree {
             if (currentNode != null && currentNode.getParent() != null) {
                 currentNode = currentNode.getParent(); //move to parent node
                 currentScreen = currentNode.getScreen(); //move to parent node's screen
-                main.setCurrentScreen(currentScreen); 
+                main.setCurrentScreen(currentScreen); //the last line i was missing! the secret ingredient :)
                 
                 //figure out whether or not its working
                 System.out.println("Going back to: " + currentScreen.getClass().getSimpleName());  // Print current node after back
@@ -135,12 +133,6 @@ public class DreamTree {
             }
         }
 
-        // if (main.key == 'p' || main.key == 'P') {
-        //     Screen previousScreen = dreamTree.getPreviousScreen();
-        //     if (previousScreen != null) {
-        //         dreamTree.setScreen(previousScreen);
-        //     }
-        // }
     }
 
     //get the current screen
@@ -148,10 +140,6 @@ public class DreamTree {
         return currentNode.getScreen(); //return current screen
     }
 
-    // public void setScreen(Screen screen) {
-    //     currentScreen = currentNode.getScreen();
-    //     main.setCurrentScreen(screen);
-    // }
 
     //display the current node's image as the background - once this works im going to take the backgrounds out of the screen classes of Falling, Flying, Drowning, and Swimming - all the ones that are the end of the line
     public void displayCurrentNode() {

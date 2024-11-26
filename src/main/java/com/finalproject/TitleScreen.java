@@ -21,7 +21,7 @@ public class TitleScreen extends Screen {
     //set up method for title screen, load title screen bg img, set bg img for title screen as bg
     @Override
     void setup() {
-            PImage bg = main.loadImage("titlepagebg.jpg"); //load the bg image
+            PImage bg = main.loadImage("titlepage.png"); //load the bg image
             setBackground(bg);  // Only set the background if the image is loaded
        
     }

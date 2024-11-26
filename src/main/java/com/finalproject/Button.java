@@ -28,7 +28,7 @@ public abstract class Button {
 
     //overrided constructor
     Button(PApplet main, String label, float x, float y, float width, float height) { //overloaded constructor without color
-        this(main, label, x, y, width, height, main.color(23, 50, 155)); //default color is set to blue
+        this(main, label, x, y, width, height, main.color(33, 123, 150)); //default color is set to blue
     }
 
     //draw method
@@ -36,9 +36,8 @@ public abstract class Button {
         main.fill(color); //set button fill color
         main.rectMode(PApplet.CENTER); //set rectangle mode to center
         main.rect(x, y, width, height); //draw button rectangle
-
         main.fill(255); //set text fill color to white
-        main.strokeWeight(0); //make stroke weight = 0
+        main.strokeWeight(3); //make stroke weight = 0
         main.textAlign(PApplet.CENTER, PApplet.CENTER); //align text to center
         main.textSize(20); //set text size
         main.text(label, x, y); //draw button label text

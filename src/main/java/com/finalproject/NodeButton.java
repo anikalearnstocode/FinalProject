@@ -9,8 +9,6 @@
 
 package com.finalproject;
 
-import processing.core.PApplet;
-
 public class NodeButton extends Button {
 
     private DreamNode linkedNode; // dream node this button is linked to
