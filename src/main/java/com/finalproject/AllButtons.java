@@ -46,18 +46,17 @@ public class AllButtons {
             new NodeButton(main, "In The Water", centerX + 60 - 50, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),
             new NodeButton(main, "Island", centerX + 515 + 50, centerY + 450, buttonWidth * 2, buttonHeight * 2, color),
 
-            new NodeButton(main, "Falling", centerX - 50 - 540, centerY - 200, buttonWidth*2, buttonHeight*2, color),
-            new NodeButton(main, "Flying", centerX + 50*2 + 220, centerY + 140, buttonWidth*2, buttonHeight*2, color),
+            new NodeButton(main, "Falling", centerX - 50 - 530, centerY - 200, buttonWidth*2, buttonHeight*2, color),
+            new NodeButton(main, "Flying", centerX + 50*2 + 230, centerY + 140, buttonWidth*2, buttonHeight*2, color),
 
-            new NodeButton(main, "Swimming", centerX - 50 - 380, centerY - 250, buttonWidth + 20, buttonHeight + 20, color),
-           new NodeButton(main, "Drowning", centerX + 50*2 + 330, centerY + 250, buttonWidth + 20, buttonHeight + 20, color),
+            new NodeButton(main, "Swimming", centerX - 50 - 380, centerY - 250, buttonWidth *2, buttonHeight * 2, color),
+            new NodeButton(main, "Drowning", centerX + 50*2 + 330, centerY + 250, buttonWidth * 2, buttonHeight * 2, color),
 
+            new NodeButton(main, "Stranded", centerX - 150, centerY - 300, buttonWidth * 2, buttonHeight * 2, color),
+            new NodeButton(main, "Vacation", centerX +150, centerY - 300, buttonWidth * 2, buttonHeight * 2, color),
 
-            new NodeButton(main, "Stranded", centerX - 50 - 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
-            new NodeButton(main, "Vacation", centerX + 50 + 50, centerY - 270, buttonWidth * 2, buttonHeight + 20, color),
-
-            new NodeButton(main, "Choppy Waters", centerX - 50 - 150, centerY - 500, buttonWidth * 2, buttonHeight + 20, color),
-            new NodeButton(main, "Calm Waters", centerX + 50 + 150, centerY - 500, buttonWidth * 2, buttonHeight + 20, color), 
+            new NodeButton(main, "Choppy Waters", centerX - 150, centerY - 150, buttonWidth * 2, buttonHeight *2, color),
+            new NodeButton(main, "Calm Waters", centerX + 150, centerY - 150 , buttonWidth * 2, buttonHeight *2, color), 
         
             new NodeButton(main, "Restart", centerX, centerY - 600, buttonWidth * 2, buttonHeight + 20, color) 
 
